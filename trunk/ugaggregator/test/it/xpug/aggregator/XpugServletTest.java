@@ -49,13 +49,13 @@ public class XpugServletTest extends TestCase {
 		resp.getInputStream();
 		assertTrue(resp.getText().indexOf("This is a simple Servlet!") > -1);
 	*/
-	   /* ServletUnitClient sc = sr.newClient();
+	    ServletUnitClient sc = sr.newClient();
 	    WebRequest request   = new PostMethodWebRequest( "http://it.xpug.aggregator/myServlet" );
 	    WebResponse response = sc.getResponse( request );
 	    assertNotNull( "No response received", response );
 	    assertEquals( "content type", "text/html", response.getContentType() );
 	    assertTrue(response.getText().indexOf("This is a simple Servlet!") > -1);
-		*/
+		
 		}
 
 }
