@@ -1,4 +1,4 @@
-<project name="ugaggregator" default="deploy" basedir=".">
+<project name="ugaggregator" basedir=".">
 
 	<target name="deploy" depends="compile,test">
 		<delete file="${dir.output}/**"/>
@@ -61,7 +61,7 @@ deprecation="false" target="1.4" verbose="true" source="1.4">
 		</javac>
 	</target>
 
-	<target name="all" depends="deploy,compile" description="Build
+	<target name="all" depends="test" description="Build
 everything.">
 		<echo message="Build done."/>
 	</target>
