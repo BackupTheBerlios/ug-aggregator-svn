@@ -6,7 +6,5 @@
 	<classpathentry kind="lib" path="lib/httpunit.jar"/>
 	<classpathentry kind="lib" path="lib/javax.servlet.jar"/>
 	<classpathentry kind="lib" path="lib/junit.jar"/>
-	<classpathentry kind="lib" path="lib/js.jar"/>
-	<classpathentry kind="lib" path="lib/nekohtml.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
