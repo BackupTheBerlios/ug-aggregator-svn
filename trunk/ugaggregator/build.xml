@@ -82,5 +82,12 @@ everything.">
 			</batchtest>
 		</junit>
 	</target>
+	
+    <target name="run" depends="deploy" description="esegue il progetto in un server">
+    		<echo message="Apri il browser su http://localhost:8080/" />
+        <java jar="${dir.lib}/winstone-0.8.1.jar" fork="true" >
+        		<arg value="--warfile=${filedeploy.war}" />
+        	</java>
+    </target>
 
 </project>
