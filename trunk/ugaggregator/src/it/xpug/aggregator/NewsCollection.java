@@ -8,15 +8,27 @@ import java.util.*;
 
 public class NewsCollection {
 
-  protected SortedMap newsList = new TreeMap();
-    
+  protected SortedSet newsList = new TreeSet(createNewsComparator());
+  
   public void addNews(News news) {
-    try {
-      newsList.put(news.insertionDate(), news);
-    } catch (ParseException e) {
-      throw new RuntimeException(e);
-    }
+    newsList.add(news);
   }
+
+  private Comparator createNewsComparator() {
+    return new Comparator(){
+
+      public int compare(Object o1, Object o2) {
+        try {
+          return (int) (((News)o1).insertionDate().getTimeInMillis() - 
+                       ((News)o2).insertionDate().getTimeInMillis());
+        } catch (ParseException e) {
+          throw new RuntimeException(e);
+        }
+               
+      }
+    };
+  }
+
 
   public int count() {
     return newsList.size();
