@@ -30,14 +30,12 @@
 		<property name="dir.conf" value="./conf"/>
 		<!-- files -->
 		<property name="file.build" value="build.xml"/>
-		<property name="filedeploy.war"
-value="${dir.output}/${project}.war"/>
+		<property name="filedeploy.war" value="${dir.output}/${project}.war"/>
 	</target>
 
 	<target name="compile" depends="init">
 		<delete file="${dir.build}/**"/>
-		<javac srcdir="${dir.src}" destdir="${dir.build}" debug="true"
-deprecation="false" target="1.4" verbose="true" source="1.4">
+		<javac srcdir="${dir.src}" destdir="${dir.build}" debug="true" deprecation="false" target="1.4" verbose="true" source="1.4">
 			<classpath>
 				<fileset dir="${dir.lib}">
 					<include name="**/*.jar"/>
@@ -49,8 +47,7 @@ deprecation="false" target="1.4" verbose="true" source="1.4">
 
 	<target name="compiletest" depends="compile">
 		<delete file="${dir.test.build}/**"/>
-		<javac srcdir="${dir.test.src}" destdir="${dir.test.build}" debug="true"
-deprecation="false" target="1.4" verbose="true" source="1.4">
+		<javac srcdir="${dir.test.src}" destdir="${dir.test.build}" debug="true" deprecation="false" target="1.4" verbose="true" source="1.4">
 			<classpath>
 				<fileset dir="${dir.lib}">
 					<include name="**/*.jar"/>
@@ -61,8 +58,7 @@ deprecation="false" target="1.4" verbose="true" source="1.4">
 		</javac>
 	</target>
 
-	<target name="all" depends="test" description="Build
-everything.">
+	<target name="all" depends="test" description="Build everything.">
 		<echo message="Build done."/>
 	</target>
 
@@ -84,10 +80,10 @@ everything.">
 	</target>
 	
     <target name="run" depends="deploy" description="esegue il progetto in un server">
-    		<echo message="Apri il browser su http://localhost:8080/" />
+    	<echo message="Apri il browser su http://localhost:8080/" />
         <java jar="${dir.lib}/winstone-0.8.1.jar" fork="true" >
-        		<arg value="--warfile=${filedeploy.war}" />
-        	</java>
+        	<arg value="--warfile=${filedeploy.war}" />
+        </java>
     </target>
 
 </project>
