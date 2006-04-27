@@ -10,12 +10,15 @@ import org.xml.sax.*;
 
 public class HtmlChecker {
 
-	private String itsHtml;
+	private Document dom;
 
-	public HtmlChecker(String html) {
-		itsHtml = html;
+	public HtmlChecker(String html) throws SAXException, IOException, ParserConfigurationException {
+		dom = parseXmlFile(new StringBufferInputStream(html));
 	}
 
+	private NodeList findAll(String xpath) throws TransformerException {
+		return org.apache.xpath.XPathAPI.selectNodeList(dom, xpath);
+	}
 	
     public static Document parseXmlFile(InputStream is) throws SAXException, IOException, ParserConfigurationException {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -23,11 +26,20 @@ public class HtmlChecker {
 		return factory.newDocumentBuilder().parse(is);
     }
     
-	public boolean existsClass(String classTag) throws SAXException, IOException, ParserConfigurationException, TransformerException {
-		Document doc = parseXmlFile(new StringBufferInputStream(itsHtml));
-		NodeList nodelist = org.apache.xpath.XPathAPI.selectNodeList(doc, "//*[@class='" + classTag + "']");
-		
+	public boolean existsElementWithClass(String classTag) throws SAXException, IOException, ParserConfigurationException, TransformerException {
+		return getNumberOfElementsWithClass(classTag) > 0;
+	}
+
+
+	public boolean existsElementWithClassAndContent(String classTag, String contentTag) throws SAXException, IOException, ParserConfigurationException, TransformerException {
+		String xpath = "//*[@class='" + classTag + "'][contains(., '" + contentTag.replaceAll("'", "&#27;") + "')]";
+		NodeList nodelist = findAll(xpath);
 		return nodelist.getLength() > 0;
+	}
+
+	public int getNumberOfElementsWithClass(String classTag) throws TransformerException {
+		String xpath = "//*[@class='" + classTag + "']";
+		return findAll(xpath).getLength();
 	}
 
 }
