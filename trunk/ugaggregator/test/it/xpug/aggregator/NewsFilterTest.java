@@ -1,53 +1,50 @@
-
 package it.xpug.aggregator;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import junit.framework.TestCase;
 
 public class NewsFilterTest extends TestCase {
-
-	public void testFilterUnchanged() {
+	
+	private NewsCollection newsList;
+	private NewsFilter newsFilter;
+	
+	protected void setUp() throws Exception {
+		super.setUp();
 		
-		NewsFilter newsFilter = new NewsFilter(new Date());
-
-		List expectedNewsList = this.buildTestList();
-		
-		List filteredNews =  newsFilter.filter(expectedNewsList);
-		
-		assertEquals(expectedNewsList, filteredNews);	
+		newsList = new NewsCollection();
+		newsFilter = new NewsFilter();
 	}
 	
-	private List buildTestList() {
-		NewsMock newsUno = new NewsMock(new Date(2006, 3, 25));
-		NewsMock newsDue = new NewsMock(new Date(2006, 3, 26));
-		List testList = new ArrayList();
-		testList.add(newsUno);
-		testList.add(newsDue); 
-		return testList;
+	public void testFilterUnchanged() {
+
+		News news = getNews("2010/04/25");
+		
+		newsList.addNews(news);
+		
+		NewsCollection filteredNewsList = newsFilter.filter(newsList);
+		
+		News filteredNews = (News)filteredNewsList.newsList.first();
+		
+		assertEquals(news.title(), filteredNews.title());
+	}
+	
+	public void testFilterOneExpired() {
+
+		newsList.addNews(getNews("2005/04/25"));
+		
+		assertEquals(0, newsFilter.filter(newsList).newsList.size());
+	}
+	
+	private News getNews(String expirationDate) {
+		
+		String newsAsString = "Titolo news\n" + 
+						"Descrizione news\n" +
+						"2006/04/14\n" + 
+						expirationDate +
+						"\n";
+		
+		return new News(newsAsString);
 	}
 
-	private class NewsMock extends News {
-
-		private static final String NEWS_AS_STRING = "Titolo news\n" + 
-		"Descrizione news\n" +
-		"2006/04/14\n" + 
-		"2006/04/25\n";
-		
-		private String title = "";
-		private String description = "";
-		private Date expiring = null;
-		
-		public NewsMock(Date expiring) {
-			super(NEWS_AS_STRING);
-			this.expiring = expiring;
-		}
-		
-		public Date expiringDate() {
-			return this.expiring;
-		}
-	}
+	
 }
 
