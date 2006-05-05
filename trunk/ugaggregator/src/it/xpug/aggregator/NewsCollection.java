@@ -24,7 +24,7 @@ public class NewsCollection {
         } catch (ParseException e) {
           throw new RuntimeException(e);
         }
-               
+        
       }
     };
   }

@@ -19,8 +19,8 @@ public class ChronologicalTest extends TestCase {
   private News createNews(String insertionDate) {
     News news01 = new News("pippo\n" +
                            "pluto\n" +
-                           insertionDate +
-                           "2006/07/12"
+                           insertionDate + "\n" +
+                           "2006/07/12\n"
                            );
     return news01;
   }

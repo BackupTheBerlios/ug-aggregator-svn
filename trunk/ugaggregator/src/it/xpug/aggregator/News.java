@@ -11,31 +11,37 @@ public class News {
 
 	private String[] strings;
 	private GregorianCalendar itsInsertionDate;
+	private GregorianCalendar itsExpirationDate;
+	private String itsTitle;
+	private String itsDescription;
 
 	public News(String news) {
 		try {
 			strings = news.split("\n");
+			itsTitle = strings[0];
+			itsDescription = strings[1];
 			itsInsertionDate = parseDate(strings[2]);
+			itsExpirationDate = parseDate(strings[3]);
 			
 		} catch (Exception e) {
-			new InvalidParameterException(e.getMessage());
+			throw new InvalidParameterException(e.getMessage());
 		}
 	}
 
 	public String title() {
-		return strings[0];
+		return itsTitle;
 	}
 
 	public String description() {
-		return strings[1];
+		return itsDescription;
 	}
 
 	public GregorianCalendar insertionDate() throws ParseException {
-		return parseDate(strings[2]);
+		return itsInsertionDate;
 	}
 
 	public GregorianCalendar exirationDate() throws ParseException {
-		return parseDate(strings[3]);
+		return itsExpirationDate;
 	}
 
 	private GregorianCalendar parseDate(String dateAsString) throws ParseException {

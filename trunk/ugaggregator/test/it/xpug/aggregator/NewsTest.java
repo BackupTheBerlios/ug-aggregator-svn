@@ -25,7 +25,7 @@ public class NewsTest extends TestCase {
 	public void testEmpty(){
 		try {
 			News news = new News("");
-			//fail("With empty string should throw an exception");
+			fail("With empty string should throw an exception");
 		} catch (InvalidParameterException e) {
 		}
 	}
