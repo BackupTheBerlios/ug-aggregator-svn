@@ -25,10 +25,16 @@ private String directory;
 	}
 
 	public String getFileContent() throws IOException {
-		/*File file=new File(directory+"/fake.news");
+		File file=new File(directory+"/fake.news");
 		BufferedReader in = new BufferedReader(new FileReader(file));
-		return in.readLine();*/
-		return "pippo";
+		return in.readLine();
+//		return "pippo";
+	}
+
+	public File[] listFiles() {
+		 File dir = new File(directory); 
+    	 File[] files = dir.listFiles();
+		return files;
 	}
 
 }
