@@ -1,21 +1,20 @@
 package it.xpug.aggregator.acceptance;
 
-import junit.framework.TestCase;
+import it.xpug.aggregator.acceptance.util.AcceptanceTestCase;
 
-public class NewsPageAcceptanceTest extends TestCase {
+public class NewsPageAcceptanceTest extends AcceptanceTestCase {
+	public void testIfInseritaThenAppare() throws Exception { 
+		insertNews("Titolo", "Testo testo testo", insertedToday(), expiresTomorrow()); 
+		assertEquals(1, numberOfNewsInPublicPage()); 
+		assertNewsPresent("Titolo", "Testo testo testo", insertedToday());
+	}
 	
-	private void insertNews(String string, String string2) {
-		
-	}
-
-	private void assertNewsPresent(String title, String description) {
-//		assertTrue(checker.assertElementWithClassAndContent("title", title));
-//		assertTrue(checker.assertElementWithClassAndContent("description", description));
-	}
-
-	public void testInsertedNewsAreShownOnThePage() throws Exception {
-		insertNews("Titolo", "Descrizione");
-		assertNewsPresent("Titolo", "Descrizione");
-//		assertEquals(1, numberOfNewsShown());
+	public void testIfSortOfTwoNews() throws Exception { 
+		insertNews("Titolo1", "Testo testo testo1", insertedYesterday(), expiresTomorrow()); 
+		insertNews("Titolo2", "Testo testo testo2", insertedToday(), expiresTomorrow()); 
+		assertEquals(2, numberOfNewsInPublicPage()); 
+		assertNewsPresent("Titolo1", "Testo testo testo1", insertedYesterday());
+		assertNewsPresent("Titolo2", "Testo testo testo2", insertedToday());
+		assertNewsComesBefore("Titolo1", "Titolo2");
 	}
 }
