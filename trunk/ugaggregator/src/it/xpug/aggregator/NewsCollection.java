@@ -8,30 +8,41 @@ import java.util.*;
 
 public class NewsCollection {
 
-  protected SortedSet newsList = new TreeSet(createNewsComparator());
-  
-  public void addNews(News news) {
-    newsList.add(news);
-  }
+	protected SortedSet newsList = new TreeSet(createNewsComparator());
 
-  private Comparator createNewsComparator() {
-    return new Comparator(){
+	public void addNews(News news) {
+		newsList.add(news);
+	}
 
-      public int compare(Object o1, Object o2) {
-        try {
-          return (int) (((News)o1).insertionDate().getTimeInMillis() - 
-                       ((News)o2).insertionDate().getTimeInMillis());
-        } catch (ParseException e) {
-          throw new RuntimeException(e);
-        }
-        
-      }
-    };
-  }
+	
+	private Comparator createNewsComparator() {
+		return new Comparator() {
 
+			public int compare(Object o1, Object o2) {
+				try {
+					long d1 = ((News) o1).insertionDate().getTimeInMillis();
+					long d2 = ((News) o2).insertionDate().getTimeInMillis();
+					if (d1 == d2) {
+						return 1;
+					} else {
+						return (int) (d1 - d2);
+					}
+				} catch (ParseException e) {
+					throw new RuntimeException(e);
+				}
 
-  public int count() {
-    return newsList.size();
-  }
+			}
+		};
+	}
+
+	public int count() {
+		return newsList.size();
+	}
+
+	public Iterator iterator() {
+
+		return newsList.iterator();
+	}
+
 
 }
