@@ -26,15 +26,8 @@ public class NewsFilter {
 		for (Iterator i = newsList2Filter.newsList.iterator(); i.hasNext(); ) {
 			News currNews = (News)i.next();
 			
-			//TODO : News exirationDate non dovrebbe rilanciare un eccezione
-			//		 Rimuovere il try/catch dopo la modifica
-
-			try {
-				if (!currNews.exirationDate().before(referenceDate))
-					newsListFiltered.addNews(currNews);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
+			if (!currNews.expirationDate().before(referenceDate))
+				newsListFiltered.addNews(currNews);
 		}
 		
 		return newsListFiltered;

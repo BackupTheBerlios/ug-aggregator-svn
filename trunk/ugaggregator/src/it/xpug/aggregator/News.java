@@ -38,11 +38,11 @@ public class News {
 		return itsDescription;
 	}
 
-	public GregorianCalendar insertionDate() throws ParseException {
+	public GregorianCalendar insertionDate() {
 		return itsInsertionDate;
 	}
 
-	public GregorianCalendar exirationDate() throws ParseException {
+	public GregorianCalendar expirationDate() {
 		return itsExpirationDate;
 	}
 

@@ -10,7 +10,7 @@ public class NewsFormat {
 	public String format(News news) throws ParseException {
 	
 		String insertionDate = formatDateForFile(news.insertionDate());
-		String exirationDate = formatDateForFile(news.exirationDate());
+		String exirationDate = formatDateForFile(news.expirationDate());
 		
 		return news.title() + "\n" + news.description() + "\n" + insertionDate + "\n" + exirationDate;
 	}
