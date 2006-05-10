@@ -18,6 +18,8 @@ public class News {
 	public News(String news) {
 		try {
 			strings = news.split("\n");
+			if (strings.length != 4)
+				throw new InvalidNewsString();
 			itsTitle = strings[0];
 			itsDescription = strings[1];
 			itsInsertionDate = parseDate(strings[2]);
