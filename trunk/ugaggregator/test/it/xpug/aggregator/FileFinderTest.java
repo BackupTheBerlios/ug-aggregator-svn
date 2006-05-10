@@ -9,71 +9,73 @@ import junit.framework.TestCase;
 
 public class FileFinderTest extends TestCase {
 	private String tmpDir;
-	private String filename;
+
 	private File newsDirectory;
-	
+
 	protected void setUp() throws Exception {
-		filename = "fake.news";
-		
-		newsDirectory=new File(System.getProperty("java.io.tmpdir"), 
-				String.valueOf(System.currentTimeMillis()));
-		newsDirectory.mkdir();
-		tmpDir=newsDirectory.getPath();
-		Thread.sleep(10);
-		//System.out.println(tmpDir);
-		/*
-		File file=new File(newsDirectory.getPath(),filename);
-		FileWriter fileWriter = new FileWriter(file);
-		BufferedWriter writer=new BufferedWriter(fileWriter);
-		writer.write("pippo");
-		writer.close();*/
+		newsDirectory = File.createTempFile("xpug", "");
+		if (!newsDirectory.delete())
+			throw new IOException();
+		if (!newsDirectory.mkdir())
+			throw new IOException();
+		tmpDir = newsDirectory.getPath();
 	}
-	
-	/*protected void tearDown() throws Exception {
-	    File[] files= newsDirectory.listFiles();
-	    
-	}*/
-	
-	/*public void testSimple() throws Exception {
-		FileFinder fileFinder=new FileFinder(tmpDir);
-		String fileContent=fileFinder.getFileContent();
-		assertEquals("pippo",fileContent);
-	}	*/
-	
-	public void testEmptyList() {
-		FileFinder fileFinder=new FileFinder(tmpDir);
-		File[] files = fileFinder.listFiles();
-		assertEquals(0, files.length);
+
+	public void testEmptyList() throws IOException {
+		FileFinder fileFinder = new FileFinder(tmpDir);
+		String[] contents = fileFinder.listFilesContent();
+		assertEquals(0, contents.length);
 	}
-	
+
 	public void testList() throws IOException {
-		File file=new File(tmpDir,filename);
+		createFile("news1", "someContents\nandothercontents");
+		FileFinder fileFinder = new FileFinder(tmpDir);
+		String[] contents = fileFinder.listFilesContent();
+		assertEquals(1, contents.length);
+		assertEquals("someContents\nandothercontents\n", contents[0]);
+	}
+
+	public void createFile(String fileName, String content) throws IOException {
+		File file = new File(tmpDir, fileName);
 		FileWriter fileWriter = new FileWriter(file);
-		BufferedWriter writer=new BufferedWriter(fileWriter);
-		writer.write("pippo");
+		BufferedWriter writer = new BufferedWriter(fileWriter);
+		writer.write(content);
 		writer.close();
-		
-		FileFinder fileFinder=new FileFinder(tmpDir);
-		File[] files = fileFinder.listFiles();
-		assertEquals(1, files.length);
 	}
-	
-	public void createFile(String fileName) throws IOException
-	{
-	File file=new File(tmpDir,fileName);
-	FileWriter fileWriter = new FileWriter(file);
-	BufferedWriter writer=new BufferedWriter(fileWriter);
-	writer.write("pippo");
-	writer.close();
-	}
+
 	public void testList2Files() throws IOException {
-		createFile("file1.news");
-		createFile("file2.news");
+		createFile("file1.news", "first");
+		createFile("file2.news", "second");
+
+		FileFinder fileFinder = new FileFinder(tmpDir);
+		String[] contents = fileFinder.listFilesContent();
+		assertEquals(2, contents.length);
+		assertEquals("first\n",contents[0]);
+		assertEquals("second\n",contents[1]);
 		
-		FileFinder fileFinder=new FileFinder(tmpDir);
-		File[] files = fileFinder.listFiles();
-		assertEquals(2, files.length);
 	}
-	
-	
+//TODO ripartire da questo test 	
+//	public void testListFilter() throws IOException {
+//		createFile("20051203_XPUGMilano_1.txt", "first");
+//		createFile("file2.tmp", "second");
+//		FileFinder fileFinder = new FileFinder(tmpDir);
+//		String[] contents = fileFinder.listFilesContent();
+//		assertEquals(1, contents.length);
+//		assertEquals("first", contents[0]);		
+//	}
+
+	protected void tearDown() throws Exception {
+		deleteDir(newsDirectory);
+	}
+
+	private void deleteDir(File dir) {
+		if (dir.isDirectory()) {
+			String[] children = dir.list();
+			for (int i = 0; i < children.length; i++) {
+				deleteDir(new File(dir, children[i]));
+			}
+		}
+		dir.delete();
+	}
+
 }
