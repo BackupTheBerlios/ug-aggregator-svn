@@ -19,7 +19,7 @@ public class FileFinderTest extends TestCase {
 				String.valueOf(System.currentTimeMillis()));
 		newsDirectory.mkdir();
 		tmpDir=newsDirectory.getPath();
-		Thread.sleep(1);
+		Thread.sleep(10);
 		//System.out.println(tmpDir);
 		/*
 		File file=new File(newsDirectory.getPath(),filename);
