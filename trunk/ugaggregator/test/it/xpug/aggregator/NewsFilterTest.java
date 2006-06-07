@@ -16,7 +16,7 @@ public class NewsFilterTest extends TestCase {
 	
 	public void testFilterUnchanged() {
 
-		News news = getNews("2010/04/25");
+		News news = NewsBuilder.with("2010/04/25");
 		
 		newsList.addNews(news);
 		
@@ -29,20 +29,9 @@ public class NewsFilterTest extends TestCase {
 	
 	public void testFilterOneExpired() {
 
-		newsList.addNews(getNews("2005/04/25"));
+		newsList.addNews(NewsBuilder.with("2005/04/25"));
 		
 		assertEquals(0, newsFilter.filter(newsList).newsList.size());
-	}
-	
-	private News getNews(String expirationDate) {
-		
-		String newsAsString = "Titolo news\n" + 
-						"Descrizione news\n" +
-						"2006/04/14\n" + 
-						expirationDate +
-						"\n";
-		
-		return new News(newsAsString);
 	}
 
 	

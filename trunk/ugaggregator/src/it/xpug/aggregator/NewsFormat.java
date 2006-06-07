@@ -15,12 +15,10 @@ public class NewsFormat {
 		return news.title() + "\n" + news.description() + "\n" + insertionDate + "\n" + exirationDate;
 	}
 	
-	protected String formatDateForFile(GregorianCalendar date){
-		
+	protected String formatDateForFile(GregorianCalendar date)
+	{
 		DateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-		String formatDate = format.format(date.getTime());
-		
-		//String formatDate = new Integer(date.YEAR).toString()+ "/" + new Integer(date.MONTH).toString()+ "/" + new Integer(date.DAY_OF_MONTH).toString();
+		String formatDate = format.format(date.getTime());		
 		return formatDate;
 	}
 

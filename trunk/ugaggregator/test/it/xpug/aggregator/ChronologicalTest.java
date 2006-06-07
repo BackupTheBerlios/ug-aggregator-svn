@@ -19,9 +19,7 @@ public class ChronologicalTest extends TestCase {
 	}
 
 	private News createNews(String insertionDate) {
-		News news01 = new News("pippo\n" + "pluto\n" + insertionDate
-				+ "\n2006/07/12");
-		return news01;
+		return NewsBuilder.withInsertionDate(insertionDate);
 	}
 
 	public void testDoubleDate() {
