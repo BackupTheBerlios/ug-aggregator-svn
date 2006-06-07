@@ -48,7 +48,7 @@ public class ChronologicalTest extends TestCase {
 	}
 	
 
-	public void testRightDoubleDateSorting() {
+	public void testDoubleDateSorting() {
 //		when dates are equals lastest inserted one is put as the last of the day.
 
 		News thirdDate = NewsBuilder.withInsertionDate("2006/03/21");
@@ -59,14 +59,11 @@ public class ChronologicalTest extends TestCase {
 		newsCollection.addNews(secondDate);
 		
 		Iterator i = newsCollection.iterator();
-		assertNotNull(i);
-
-		assertTrue(i.hasNext());
 
 		assertEquals(firstDate, ((News) (i.next())));
 		assertEquals(secondDate, ((News) (i.next())));
 		assertEquals(thirdDate, ((News) (i.next())));
-
+		assertFalse(i.hasNext());
 	}	
 
 	protected void setUp() throws Exception {

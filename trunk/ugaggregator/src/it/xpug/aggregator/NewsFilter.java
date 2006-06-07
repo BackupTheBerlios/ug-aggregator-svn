@@ -17,10 +17,6 @@ public class NewsFilter {
 	}
 	
 	public NewsCollection filter(NewsCollection newsList2Filter) {
-
-		if (newsList2Filter == null)
-			throw new IllegalArgumentException("News to filter is null");
-		
 		NewsCollection newsListFiltered = new NewsCollection();
 		
 		for (Iterator i = newsList2Filter.newsList.iterator(); i.hasNext(); ) {
