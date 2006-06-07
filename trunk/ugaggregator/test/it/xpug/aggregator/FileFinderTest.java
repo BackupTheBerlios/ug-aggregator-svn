@@ -28,7 +28,7 @@ public class FileFinderTest extends TestCase {
 	}
 
 	public void testList() throws IOException {
-		createFile("news1", "someContents\nandothercontents");
+		createFile("20051203_XPUGMilano_1.txt", "someContents\nandothercontents");
 		FileFinder fileFinder = new FileFinder(tmpDir);
 		String[] contents = fileFinder.listFilesContent();
 		assertEquals(1, contents.length);
@@ -44,8 +44,8 @@ public class FileFinderTest extends TestCase {
 	}
 
 	public void testList2Files() throws IOException {
-		createFile("file1.news", "first");
-		createFile("file2.news", "second");
+		createFile("20051203_XPUGMilano_1.txt", "first");
+		createFile("20051203_XPUGMilano_2.txt", "second");
 
 		FileFinder fileFinder = new FileFinder(tmpDir);
 		String[] contents = fileFinder.listFilesContent();
@@ -54,15 +54,28 @@ public class FileFinderTest extends TestCase {
 		assertEquals("second\n",contents[1]);
 		
 	}
-//TODO ripartire da questo test 	
-//	public void testListFilter() throws IOException {
-//		createFile("20051203_XPUGMilano_1.txt", "first");
-//		createFile("file2.tmp", "second");
-//		FileFinder fileFinder = new FileFinder(tmpDir);
-//		String[] contents = fileFinder.listFilesContent();
-//		assertEquals(1, contents.length);
-//		assertEquals("first", contents[0]);		
-//	}
+	
+	public void testListFilter() throws IOException {
+		createFile("20051203_XPUGMilano_1.txt", "first");
+		createFile("file2.tmp", "second");
+		createFile("file3.tmp", "third");
+		FileFinder fileFinder = new FileFinder(tmpDir);
+		String[] contents = fileFinder.listFilesContent();
+		assertEquals(1, contents.length);
+		assertEquals("first\n", contents[0]);		
+	}
+	
+	public void testList2Filter() throws IOException {
+		createFile("20051203_XPUGMilano_1.txt", "first");
+		createFile("20051203_XPUGMilano_2.txt", "second");
+		createFile("file2.tmp", "second");
+		createFile("file3.tmp", "third");
+		FileFinder fileFinder = new FileFinder(tmpDir);
+		String[] contents = fileFinder.listFilesContent();
+		assertEquals(2, contents.length);
+		assertEquals("first\n", contents[0]);
+		assertEquals("second\n", contents[1]);
+	}
 
 	protected void tearDown() throws Exception {
 		deleteDir(newsDirectory);
@@ -76,6 +89,14 @@ public class FileFinderTest extends TestCase {
 			}
 		}
 		dir.delete();
+	}
+	
+	public void testParametrizedFilefinder() throws Exception {
+		createFile("20051203_XPUGMilano_1.txt", "first");
+		FileFinder fileFinder = new FileFinder(tmpDir,"\\d{8}_\\w+_\\d+\\.txt");
+		String[] contents = fileFinder.listFilesContent();
+		assertEquals(1, contents.length);
+		assertEquals("first\n", contents[0]);		
 	}
 
 }
