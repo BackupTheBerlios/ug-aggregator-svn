@@ -15,4 +15,8 @@ public class NewsBuilder {
 				+ "\n2006/07/12");
 	}
 
+	public static News withAllFields(String newsAsString) {
+		return new News(newsAsString);
+	}
+
 }

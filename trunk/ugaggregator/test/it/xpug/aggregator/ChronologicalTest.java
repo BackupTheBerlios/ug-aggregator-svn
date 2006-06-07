@@ -13,31 +13,27 @@ public class ChronologicalTest extends TestCase {
 
 	public void testSimple() {
 		assertEquals(0, newsCollection.count());
-		newsCollection.addNews(createNews("2006/03/12"));
+		newsCollection.addNews(NewsBuilder.withInsertionDate("2006/03/12"));
 
 		assertEquals(1, newsCollection.count());
 	}
 
-	private News createNews(String insertionDate) {
-		return NewsBuilder.withInsertionDate(insertionDate);
-	}
-
 	public void testDoubleDate() {
-		newsCollection.addNews(createNews("2006/03/12"));
-		newsCollection.addNews(createNews("2006/03/18"));
+		newsCollection.addNews(NewsBuilder.withInsertionDate("2006/03/12"));
+		newsCollection.addNews(NewsBuilder.withInsertionDate("2006/03/18"));
 		assertEquals(2, newsCollection.count());
-		newsCollection.addNews(createNews("2006/03/12"));
+		newsCollection.addNews(NewsBuilder.withInsertionDate("2006/03/12"));
 		assertEquals(3, newsCollection.count());
 			
 	}
 
 	public void testRightSorting() {
 
-		News secondDate = createNews("2006/03/18");
+		News secondDate = NewsBuilder.withInsertionDate("2006/03/18");
 		newsCollection.addNews(secondDate);
-		News thirdDate = createNews("2006/03/21");
+		News thirdDate = NewsBuilder.withInsertionDate("2006/03/21");
 		newsCollection.addNews(thirdDate);
-		News firstDate = createNews("2006/03/12");
+		News firstDate = NewsBuilder.withInsertionDate("2006/03/12");
 		newsCollection.addNews(firstDate);
 
 		Iterator i = newsCollection.iterator();
@@ -55,11 +51,11 @@ public class ChronologicalTest extends TestCase {
 	public void testRightDoubleDateSorting() {
 //		when dates are equals lastest inserted one is put as the last of the day.
 
-		News thirdDate = createNews("2006/03/21");
+		News thirdDate = NewsBuilder.withInsertionDate("2006/03/21");
 		newsCollection.addNews(thirdDate);
-		News firstDate = createNews("2006/03/18");
+		News firstDate = NewsBuilder.withInsertionDate("2006/03/18");
 		newsCollection.addNews(firstDate); 
-		News secondDate = createNews("2006/03/18");
+		News secondDate = NewsBuilder.withInsertionDate("2006/03/18");
 		newsCollection.addNews(secondDate);
 		
 		Iterator i = newsCollection.iterator();

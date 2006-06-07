@@ -37,7 +37,7 @@ public class NewsFormatTest extends TestCase {
 		NewsFormat myNewsFormat = new NewsFormat();
 		String newsAsString = "titolo\ndescrizione\n2006/01/01\n2006/12/31";
 
-		News news = new News(newsAsString);
+		News news = NewsBuilder.withAllFields(newsAsString);
 		String s = myNewsFormat.format(news);
 		
 		assertEquals(newsAsString, s);
