@@ -5,6 +5,32 @@ import junit.framework.TestCase;
 
 public class NewsValidatorTest extends TestCase {
 	
+	public void testInvalidExpirationDateFormat() {
+		
+		String newsAsString = "Titolo news\n" + 
+								"Descrizione news\n" +
+								"2006/04/14\n" + 
+								"2007-04/--5\n";
+		
+		NewsValidator validator = new NewsValidator(newsAsString);
+		
+		assertFalse(validator.isValid());
+		assertEquals(NewsValidator.ERROR_INVALID_EXPIRATION_DATE_FORMAT, validator.errorMessage());	
+	}
+	
+	public void testInvalidRegistrationDateFormat() {
+		
+		String newsAsString = "Titolo news\n" + 
+								"Descrizione news\n" +
+								"2006-04-14\n" + 
+								"2007/04/25\n";
+		
+		NewsValidator validator = new NewsValidator(newsAsString);
+		
+		assertFalse(validator.isValid());
+		assertEquals(NewsValidator.ERROR_INVALID_REGISTRATION_DATE_FORMAT, validator.errorMessage());	
+	}
+	
 	public void testInvalidExpirationDateNews() {
 		
 		String newsAsString = "Titolo news\n" + 
@@ -15,7 +41,7 @@ public class NewsValidatorTest extends TestCase {
 		NewsValidator validator = new NewsValidator(newsAsString);
 	
 		assertFalse(validator.isValid());
-		assertEquals("Data scadenza antecedente data odierna", validator.errorMessage());
+		assertEquals(NewsValidator.ERROR_EXPIRATION_DATE_BEFORE_TODAY, validator.errorMessage());
 	}
 	
 	public void testValidExpirationDateNews() {
@@ -31,48 +57,17 @@ public class NewsValidatorTest extends TestCase {
 		assertEquals("", validator.errorMessage());
 	}
 
-//	public void testInvalidTitleNews() {
-//
-//		String newsAsString = "\n" + 
-//								"Descrizione news\n" +
-//								"2006/04/14\n" + 
-//								"2007/04/25\n";
-//
-//		NewsValidator validator = new NewsValidator(newsAsString);
-//
-//		assertFalse(validator.isValid());
-//		assertEquals("Titolo Obbligatorio", validator.errorMessage());
-//	}
-	
-/*
-	public void testValidExpirationDateNews() {
-		String newsAsString = "Titolo news\n" + 
+	public void testInvalidTitleNews() {
+
+		String newsAsString = "\n" + 
 								"Descrizione news\n" +
 								"2006/04/14\n" + 
-								"2006/04/25\n";
+								"2007/04/25\n";
 
-		assertTrue(NewsValidator.validate(new News(newsAsString)));
+		NewsValidator validator = new NewsValidator(newsAsString);
+
+		assertFalse(validator.isValid());
+		assertEquals(NewsValidator.ERROR_EMPTY_TITLE, validator.errorMessage());
 	}
-	
-	public void testInvalidStringNews() {
-
-		String newsAsString = "Ti\ttolo\n\n\nnews\n" + 
-								"Descrizione news\n" +
-								"2006/04/14\n" + 
-								"2006/04/25\n";
-
-		assertFalse(NewsValidator.validateNewsString(newsAsString));
-	}
-	
-	public void testValidStringNews() {
-
-		String newsAsString = "Ti\ttolo news\n" + 
-								"Descrizione news\n" +
-								"2006/04/14\n" + 
-								"2006/04/25\n";
-
-		assertTrue(NewsValidator.validateNewsString(newsAsString));
-	}
-	*/
 
 }
