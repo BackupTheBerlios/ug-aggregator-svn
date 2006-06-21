@@ -1,4 +1,26 @@
-<project name="ugaggregator" basedir=".">
+<project name="ugaggregator" basedir="." default="test">
+
+	<!-- project info -->
+	<property name="project" value="aggregator"/>
+	<property name="project.written" value="XPUG Milano"/>
+	<property name="version.number" value="0.1"/>
+	<property name="company" value="XPUG"/>
+	<property name="version.info" value="pre-start"/>
+	<!-- distibution -->
+	<property name="dist.name" value="${project}-${version.number}"/>
+	<property name="file.dist" value="${dist.name}.zip"/>
+	<!-- directories -->
+	<property name="dir.output" value="./deploy"/>
+	<property name="dir.build" value="./build"/>
+	<property name="dir.src" value="./src"/>
+	<property name="dir.test.src" value="./test"/>
+	<property name="dir.test.build" value="./testbuild"/>
+	<property name="dir.lib" value="./lib"/>
+	<property name="dir.jsp" value="./jsp"/>
+	<property name="dir.conf" value="./conf"/>
+	<!-- files -->
+	<property name="file.build" value="build.xml"/>
+	<property name="filedeploy.war" value="${dir.output}/${project}.war"/>
 
 	<target name="deploy" depends="compile,test">
 		<delete file="${dir.output}/**"/>
@@ -9,31 +31,15 @@
 		<echo message="Deployed "/>
 	</target>
 
-	<target name="init">
-		<!-- project info -->
-		<property name="project" value="aggregator"/>
-		<property name="project.written" value="XPUG Milano"/>
-		<property name="version.number" value="0.1"/>
-		<property name="company" value="XPUG"/>
-		<property name="version.info" value="pre-start"/>
-		<!-- distibution -->
-		<property name="dist.name" value="${project}-${version.number}"/>
-		<property name="file.dist" value="${dist.name}.zip"/>
-		<!-- directories -->
-		<property name="dir.output" value="./deploy"/>
-		<property name="dir.build" value="./build"/>
-		<property name="dir.src" value="./src"/>
-		<property name="dir.test.src" value="./test"/>
-		<property name="dir.test.build" value="./testbuild"/>
-		<property name="dir.lib" value="./lib"/>
-		<property name="dir.jsp" value="./jsp"/>
-		<property name="dir.conf" value="./conf"/>
-		<!-- files -->
-		<property name="file.build" value="build.xml"/>
-		<property name="filedeploy.war" value="${dir.output}/${project}.war"/>
-	</target>
-
-	<target name="compile" depends="init">
+    <target name="clean" description="--> cleans all compilation products">
+		<echo message="${dir.build}"></echo>
+    	<delete >
+    		<fileset dir="${dir.build}"      includes="**" />
+    		<fileset dir="${dir.test.build}" includes="**" />
+    	</delete>
+    </target>
+	
+	<target name="compile">
 		<delete file="${dir.build}/**"/>
 		<javac srcdir="${dir.src}" destdir="${dir.build}" debug="true" deprecation="false" target="1.4" verbose="true" source="1.4">
 			<classpath>
@@ -56,10 +62,6 @@
 				<pathelement location="${dir.build}"/>
 			</classpath>
 		</javac>
-	</target>
-
-	<target name="all" depends="test" description="Build everything.">
-		<echo message="Build done."/>
 	</target>
 
 	<target name="test" depends="compiletest">

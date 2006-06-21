@@ -4,6 +4,7 @@ import java.security.InvalidParameterException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -14,6 +15,13 @@ public class News {
 	private GregorianCalendar itsExpirationDate;
 	private String itsTitle;
 	private String itsDescription;
+	
+	public News(String title, String description, GregorianCalendar insertionDate, GregorianCalendar expirationDate) {
+		this.itsTitle = title;
+		this.itsDescription = description;
+		this.itsInsertionDate = insertionDate;
+		this.itsExpirationDate = expirationDate;
+	}
 
 	public News(String news) {
 		try {

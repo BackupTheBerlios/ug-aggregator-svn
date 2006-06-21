@@ -37,7 +37,7 @@ public class HtmlChecker {
 	}
 
 	public NodeList getElementsWithClass(String elementClass) throws Exception {
-		String xpath = "//*"+classFilter(elementClass);
+		String xpath = "//*" + classFilter(elementClass);
 		return findAll(xpath);
 	}
 	
