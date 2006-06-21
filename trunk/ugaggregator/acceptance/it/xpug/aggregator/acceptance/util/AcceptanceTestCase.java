@@ -29,8 +29,8 @@ public class AcceptanceTestCase extends TestCase {
 		runner.registerServlet("news", XpugServlet.class.getName());
 	}
 
-	protected void insertNews(String title, String body, GregorianCalendar insertionDate, GregorianCalendar expirationDate) {
-		News news = new News(title, body, insertionDate, expirationDate);
+	protected void insertNews(String title, String body, GregorianCalendar insertionDate, GregorianCalendar expirationDate) throws Exception {
+		News news = new News(title, body, insertionDate, expirationDate, "XPUGMI");
 		NewsFileWriter writer = new NewsFileWriter(news);
 		writer.write();
 		
