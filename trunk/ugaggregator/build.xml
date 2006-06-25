@@ -64,8 +64,8 @@
 		</javac>
 	</target>
 
-	<target name="test" depends="compiletest">
-		<junit showoutput="yes">
+	<target name="test" depends="compiletest" description="esegue gli unit test">
+		<junit showoutput="yes" haltonerror="yes" haltonfailure="yes">
 			<classpath>
 				<pathelement location="${dir.test.build}"/>
 				<fileset dir="${dir.lib}">
