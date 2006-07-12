@@ -1,28 +1,28 @@
 <project name="ugaggregator" basedir="." default="test">
 
-	<!-- project info -->
-	<property name="project" value="aggregator"/>
-	<property name="project.written" value="XPUG Milano"/>
-	<property name="version.number" value="0.1"/>
-	<property name="company" value="XPUG"/>
-	<property name="version.info" value="pre-start"/>
-	<!-- distribution -->
-	<property name="dist.name" value="${project}-${version.number}"/>
-	<property name="file.dist" value="${dist.name}.zip"/>
-	<!-- directories -->
-	<property name="dir.output" value="./deploy"/>
-	<property name="dir.build" value="./build"/>
-	<property name="dir.src" value="./src"/>
-	<property name="dir.test.src" value="./test"/>
-	<property name="dir.test.build" value="./testbuild"/>
-	<property name="dir.lib" value="./lib"/>
-	<property name="dir.jsp" value="./jsp"/>
-	<property name="dir.conf" value="./conf"/>
-	<!-- files -->
-	<property name="file.build" value="build.xml"/>
-	<property name="filedeploy.war" value="${dir.output}/${project}.war"/>
-
     <target name="init">
+    	<!-- project info -->
+    	<property name="project" value="aggregator"/>
+    	<property name="project.written" value="XPUG Milano"/>
+    	<property name="version.number" value="0.1"/>
+    	<property name="company" value="XPUG"/>
+    	<property name="version.info" value="pre-start"/>
+    	<!-- distribution -->
+    	<property name="dist.name" value="${project}-${version.number}"/>
+    	<property name="file.dist" value="${dist.name}.zip"/>
+    	<!-- directories -->
+    	<property name="dir.output" value="./deploy"/>
+    	<property name="dir.build" value="./build"/>
+    	<property name="dir.src" value="./src"/>
+    	<property name="dir.test.src" value="./test"/>
+    	<property name="dir.test.build" value="./testbuild"/>
+    	<property name="dir.lib" value="./lib"/>
+    	<property name="dir.jsp" value="./jsp"/>
+    	<property name="dir.conf" value="./conf"/>
+    	<!-- files -->
+    	<property name="file.build" value="build.xml"/>
+    	<property name="filedeploy.war" value="${dir.output}/${project}.war"/>
+
 		<mkdir dir="${dir.output}"/>            
 		<mkdir dir="${dir.build}"/>
 		<mkdir dir="${dir.testbuild}"/>
@@ -44,7 +44,7 @@
 		</war>
 	</target>
 
-	<target name="compile">
+	<target name="compile" depends="init">
 		<delete file="${dir.build}/**"/>
 		<javac srcdir="${dir.src}" destdir="${dir.build}" debug="true" deprecation="false" target="1.4" verbose="true" source="1.4">
 			<classpath>
