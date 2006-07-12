@@ -14,5 +14,6 @@ public class InitServlet extends HttpServlet {
 			dirName = DEFAULT_NEWSDB_DIR;
 		}
 		System.setProperty(NewsFileWriter.IT_XPUG_AGGREGATOR_NEWS_DIR, dirName);
+		System.out.println("Vivo, esisto!");
 	}
 }
