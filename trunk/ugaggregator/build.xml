@@ -28,7 +28,7 @@
 		<mkdir dir="${dir.test.build}"/>
     </target>
 
-    <target name="clean" description="--> cleans all compilation products">
+    <target name="clean" depends="init" description="--> cleans all compilation products">
     	<delete >
     		<fileset dir="${dir.output}"     includes="**" />
     		<fileset dir="${dir.build}"      includes="**" />
