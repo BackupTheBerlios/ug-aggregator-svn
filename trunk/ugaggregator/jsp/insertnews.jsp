@@ -1,11 +1,13 @@
 <html><body>
 
-<form>
-Titolo: <input type="text" name="titolo">
+<form action="insertNews">
+Titolo: <input type="text" id="newsTitle"></input>
 <br>
-Testo: <input type="textarea" name="testo">
+Scadenza: <input type="text" id="expirationDate"></input>
 <br>
-Scadenza: <input type="text" name="scadenza">
+Testo: <input type="textarea" id="content"></input>
+<input type="submit" id="insertNewsButton" value="Insert"></input>
+<input type="submit" id="cancelNewsInsert" value="Cancel"></input>
 </form>
 
 
