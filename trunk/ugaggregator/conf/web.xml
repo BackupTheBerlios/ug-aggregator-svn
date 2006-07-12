@@ -5,6 +5,10 @@
    <servlet>
       <servlet-name>news</servlet-name>
       <servlet-class>it.xpug.aggregator.XpugServlet</servlet-class>
+      <init-param>
+         <param-name>newsdb_dir</param-name>
+         <param-value>newsdb</param-value>
+      </init-param>
    </servlet>
    <servlet-mapping>
       <servlet-name>news</servlet-name>

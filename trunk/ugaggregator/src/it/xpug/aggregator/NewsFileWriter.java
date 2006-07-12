@@ -9,11 +9,15 @@ import java.text.SimpleDateFormat;
 
 public class NewsFileWriter {
 
+	public static final String IT_XPUG_AGGREGATOR_NEWS_DIR = "it.xpug.aggregator.newsDir";
+	
 	private News itsNews;
-	private final String pathToWrite = System.getProperty("it.xpug.aggregator.newsDir");
+	private String pathToWrite = System.getProperty(IT_XPUG_AGGREGATOR_NEWS_DIR);
 
 	public NewsFileWriter(News news) {
 		itsNews = news;
+		if (null == pathToWrite) pathToWrite = XpugServlet.DEFAULT_NEWSDB_DIR; 
+		new File(pathToWrite).mkdirs();
 	}
 
 	public File write() throws IOException {
@@ -29,7 +33,7 @@ public class NewsFileWriter {
 			out.println(format.format(itsNews.insertionDate().getTime()));
 			out.println(format.format(itsNews.expirationDate().getTime()));
 		} finally {
-		    out.close();
+		    if (null != out) out.close();
 		}
 		return file;
 	}

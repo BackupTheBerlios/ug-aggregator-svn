@@ -12,6 +12,10 @@ public class FileFinder {
 	private String directory;
 	private String fileNamePattern;
 
+	public FileFinder() {		
+		this(System.getProperty(NewsFileWriter.IT_XPUG_AGGREGATOR_NEWS_DIR),"\\d{8}_\\w+_\\d+\\.txt");
+	}
+	
 	public FileFinder(String directory) {		
 		this(directory,"\\d{8}_\\w+_\\d+\\.txt");
 	}

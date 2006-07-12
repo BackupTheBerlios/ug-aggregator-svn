@@ -36,7 +36,7 @@
     	</delete>
     </target>
 
-	<target name="deploy" depends="compile,test">
+	<target name="deploy" depends="compile">
 		<delete file="${dir.output}/**"/>
 		<war destfile="${filedeploy.war}" webxml="${dir.conf}/web.xml">
 			<fileset dir="${dir.jsp}"/>
