@@ -20,7 +20,7 @@ public class InsertGuiNewsTest extends TestCase {
 	public void testTheJspShouldExist() throws Exception {
 		
 		ServletUnitClient sc = runner.newClient();
-		System.out.println("user dir= "+System.getProperty("user.dir"));
+//		System.out.println("user dir= "+System.getProperty("user.dir"));
 		WebRequest request = new PostMethodWebRequest("http://nonmiinteressa/jsp/insertnews.jsp");
 		WebResponse response = sc.getResponse(request);
 		int responseCode = response.getResponseCode();
@@ -30,7 +30,7 @@ public class InsertGuiNewsTest extends TestCase {
 	
 	public void testShouldContainAForm() throws Exception {
 		ServletUnitClient sc = runner.newClient();
-		System.out.println("user dir= "+System.getProperty("user.dir"));
+//		System.out.println("user dir= "+System.getProperty("user.dir"));
 		WebRequest request = new PostMethodWebRequest("http://nonmiinteressa/jsp/insertnews.jsp");
 		WebResponse response = sc.getResponse(request);
 		WebForm[] forms = response.getForms();

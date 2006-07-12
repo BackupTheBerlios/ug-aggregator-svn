@@ -37,11 +37,11 @@ public class JSPDesignTest extends TestCase {
 	    	NewsCollection newsCollection=new NewsCollection();
 	    	News news1=new News("Titolo news\n" + 
 	    			"Descrizione news\n" +
-	    			"2006/03/14\n" + 
+	    			"2006/03/14 234412\n" + 
 	    			"2010/04/25\n", "milano-xpug");
 	    	News news2=new News("Titolo news2\n" + 
 	    			"Descrizione news2\n" +
-	    			"2006/02/14\n" + 
+	    			"2006/02/14 234412\n" + 
 	    			"2010/04/25\n", "milano-xpug");
 	    	newsCollection.addNews(news1);
 	    	newsCollection.addNews(news2);
@@ -49,7 +49,6 @@ public class JSPDesignTest extends TestCase {
 	    	ServletUnitClient sc = sr.newClient();
 		    WebRequest request1   = new PostMethodWebRequest( "http://localhost:8080/jsp/listNews.jsp" );
 		    WebResponse response1 = sc.getResponse( request1 );
-		    System.out.println(response1.getText());
 		    assertNotNull( "No response received", response1 );
 		    assertEquals( "content type", "text/html", response1.getContentType() );
 		    assertTrue(response1.getText().indexOf("<h2>Titolo news</h2>") > -1);	
