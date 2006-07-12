@@ -2,7 +2,6 @@ package it.xpug.aggregator;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 import junit.framework.TestCase;
