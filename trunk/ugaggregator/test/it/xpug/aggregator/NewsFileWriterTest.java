@@ -35,8 +35,11 @@ public class NewsFileWriterTest extends TestCase {
         		"20060318-234412"+"20060712-000000", strBuffer.toString());		
 	}
 	
-	public void testShouldCreateDirIfItDoesNotExist() {
-		new File("pistacchio").delete();
+	public void testShouldCreateDirIfItDoesNotExist() throws InterruptedException {
+		File pistacchio=new File("pistacchio");//.delete();
+		deleteDir(pistacchio);
+		
+		//Thread.sleep(1000);
 		assertFalse(new File("pistacchio").exists());
 		
 		System.setProperty(NewsFileWriter.IT_XPUG_AGGREGATOR_NEWS_DIR, "pistacchio");
@@ -45,5 +48,15 @@ public class NewsFileWriterTest extends TestCase {
 		
 		assertTrue(new File("pistacchio").exists());
 		assertTrue(new File("pistacchio").isDirectory());
+	}
+	
+	private void deleteDir(File dir) {
+		if (dir.isDirectory()) {
+			String[] children = dir.list();
+			for (int i = 0; i < children.length; i++) {
+				deleteDir(new File(dir, children[i]));
+			}
+		}
+		dir.delete();
 	}
 }

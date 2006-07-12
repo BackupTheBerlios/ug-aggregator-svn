@@ -93,7 +93,7 @@ public class XpugServletTest extends TestCase {
 	
 	public void testInitParameterShouldBeCopiedToSystemProperty() throws Exception {
 		XpugServlet servlet = new XpugServlet();
-		System.clearProperty(NewsFileWriter.IT_XPUG_AGGREGATOR_NEWS_DIR);
+		System.setProperty(NewsFileWriter.IT_XPUG_AGGREGATOR_NEWS_DIR,"");
 		
 		FakeServletConfig myConfig = new FakeServletConfig();
 		myConfig.setProperty(XpugServlet.NEWSDB_DIR_PARAM, "piciopacio");
@@ -104,7 +104,7 @@ public class XpugServletTest extends TestCase {
 	
 	public void testShoulUseADefaultValueForDirNameWhenItIsNotFoundInWebXml() throws Exception {
 		XpugServlet servlet = new XpugServlet();
-		System.clearProperty(NewsFileWriter.IT_XPUG_AGGREGATOR_NEWS_DIR);
+		System.setProperty(NewsFileWriter.IT_XPUG_AGGREGATOR_NEWS_DIR,"");
 		
 		FakeServletConfig myConfig = new FakeServletConfig();		
 		servlet.init(myConfig);

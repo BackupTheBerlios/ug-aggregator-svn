@@ -45,7 +45,7 @@ public class JSPDesignTest extends TestCase {
 	    			"2010/04/25\n", "milano-xpug");
 	    	newsCollection.addNews(news1);
 	    	newsCollection.addNews(news2);
-	    	FakeNewsList.add(newsCollection);
+	    	FakeNewsList.setNewsCollection(newsCollection);
 	    	ServletUnitClient sc = sr.newClient();
 		    WebRequest request1   = new PostMethodWebRequest( "http://localhost:8080/jsp/listNews.jsp" );
 		    WebResponse response1 = sc.getResponse( request1 );

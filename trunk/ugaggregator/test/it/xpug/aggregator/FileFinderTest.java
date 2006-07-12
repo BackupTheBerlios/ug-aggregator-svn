@@ -76,7 +76,42 @@ public class FileFinderTest extends TestCase {
 		assertEquals("first\n", contents[0]);
 		assertEquals("second\n", contents[1]);
 	}
+	
+	public void testExtractGroupName() throws IOException {
+		assertEquals("XPUGMilano",
+				FileFinder.extractGroupName("20051203_XPUGMilano_1.txt"));
+		assertEquals("XPUGRoma",
+				FileFinder.extractGroupName("20051104_XPUGRoma_2.txt"));
+	}
+	
+	public void testFindOneNews() throws IOException {
+		createFile("20051203_XPUGMilano_1.txt", "Titolo news\n" + 
+    			"Descrizione news\n" +
+    			"2006/03/14 234412\n" + 
+    			"2010/04/25\n");		
+		FileFinder fileFinder = new FileFinder(tmpDir);
+		News finded[] = fileFinder.listNews();
+		assertEquals("Titolo news", finded[0].title());
+		assertEquals("XPUGMilano",finded[0].getUserGroup());
+	}
 
+	public void testFindTwoNews() throws IOException {
+		createFile("20051203_XPUGMilano_1.txt", "Titolo news\n" + 
+    			"Descrizione news\n" +
+    			"2006/03/14 234412\n" + 
+    			"2010/04/25\n");	
+		createFile("20051203_XPUGMinsk_1.txt", "Titolo news di minsk\n" + 
+    			"Descrizione news\n" +
+    			"2006/03/14 234412\n" + 
+    			"2010/04/25\n");
+		FileFinder fileFinder = new FileFinder(tmpDir);
+		News[] finded = fileFinder.listNews();
+		assertEquals("Titolo news", finded[0].title());
+		assertEquals("XPUGMilano",finded[0].getUserGroup());
+		assertEquals("Titolo news di minsk", finded[1].title());
+		assertEquals("XPUGMinsk",finded[1].getUserGroup());
+	}
+	
 	protected void tearDown() throws Exception {
 		deleteDir(newsDirectory);
 	}

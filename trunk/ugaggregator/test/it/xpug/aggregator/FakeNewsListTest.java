@@ -12,7 +12,7 @@ public class FakeNewsListTest extends TestCase {
 				+ "2006/04/14 234412\n" + "2006/04/25\n";
 		News news1 = new News(newsAsString, "milano-xpug");
 		newsCollection.addNews(news1);
-		FakeNewsList.add(newsCollection);
+		FakeNewsList.setNewsCollection(newsCollection);
 		// FakeNewsList.setTitle("titolo");
 		Iterator iterator = FakeNewsList.getIterator();
 		News news = (News) iterator.next();
@@ -28,7 +28,7 @@ public class FakeNewsListTest extends TestCase {
 		News news2 = new News("Titolo news2\n" + "Descrizione news2\n"
 				+ "2006/04/14 234412\n" + "2006/04/25\n", "milano-xpug");
 		newsCollection.addNews(news2);
-		FakeNewsList.add(newsCollection);
+		FakeNewsList.setNewsCollection(newsCollection);
 		// FakeNewsList.setTitle("titolo");
 		Iterator iterator = FakeNewsList.getIterator();
 		News testNews = null;

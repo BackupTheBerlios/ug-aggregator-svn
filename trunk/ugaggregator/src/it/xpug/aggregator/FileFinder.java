@@ -17,7 +17,7 @@ public class FileFinder {
 	}
 	
 	public FileFinder(String directory) {		
-		this(directory,"\\d{8}_\\w+_\\d+\\.txt");
+		this(directory, "\\d{8}_\\w+_\\d+\\.txt");
 	}
 	
 	public FileFinder(String directory, String fileNamePattern) {
@@ -55,5 +55,24 @@ public class FileFinder {
 			fileContents[i] = getFileContent(files[i]);
 		}
 		return fileContents;
+	}
+
+	public static String extractGroupName(String string) {
+		Pattern p = Pattern.compile("\\d{8}_(\\w+)_\\d+\\.txt");
+		Matcher m = p.matcher(string);
+		if (m.matches())
+			return m.group(1);
+		return "";
+	}
+
+	public News[] listNews() throws IOException {
+		File[] files=listFiles();
+		String[] filescontent=listFilesContent();
+		News[] news=new News[files.length];
+		for (int i=0;i<files.length;i++)
+		{
+			news[i]=new News(filescontent[i],extractGroupName(files[i].getName()));
+		}
+		return news;
 	}
 }

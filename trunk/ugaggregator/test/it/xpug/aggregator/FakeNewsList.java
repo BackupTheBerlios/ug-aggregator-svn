@@ -14,7 +14,7 @@ public class FakeNewsList {
 		return newsCollection.iterator();
 	}
 
-	public static void add(NewsCollection newsCollection2) {
+	public static void setNewsCollection(NewsCollection newsCollection2) {
 		newsCollection=newsCollection2;
 		
 	}
