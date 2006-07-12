@@ -38,11 +38,11 @@ public class JSPDesignTest extends TestCase {
 	    	News news1=new News("Titolo news\n" + 
 	    			"Descrizione news\n" +
 	    			"2006/03/14\n" + 
-	    			"2010/04/25\n");
+	    			"2010/04/25\n", "milano-xpug");
 	    	News news2=new News("Titolo news2\n" + 
 	    			"Descrizione news2\n" +
 	    			"2006/02/14\n" + 
-	    			"2010/04/25\n");
+	    			"2010/04/25\n", "milano-xpug");
 	    	newsCollection.addNews(news1);
 	    	newsCollection.addNews(news2);
 	    	FakeNewsList.add(newsCollection);

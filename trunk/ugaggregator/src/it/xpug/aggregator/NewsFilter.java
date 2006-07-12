@@ -1,6 +1,5 @@
 package it.xpug.aggregator;
 
-import java.text.ParseException;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 

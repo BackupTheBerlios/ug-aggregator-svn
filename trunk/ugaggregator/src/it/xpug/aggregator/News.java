@@ -67,6 +67,4 @@ public class News {
 	public String getUserGroup() {
 		return userGroup;
 	}
-	
-
 }

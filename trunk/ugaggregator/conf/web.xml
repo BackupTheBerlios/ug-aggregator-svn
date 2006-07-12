@@ -5,10 +5,6 @@
    <servlet>
       <servlet-name>news</servlet-name>
       <servlet-class>it.xpug.aggregator.XpugServlet</servlet-class>
-      <init-param>
-         <param-name>dummy</param-name>
-         <param-value>dummydummy</param-value>
-      </init-param>
    </servlet>
    <servlet-mapping>
       <servlet-name>news</servlet-name>

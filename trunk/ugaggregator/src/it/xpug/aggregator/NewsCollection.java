@@ -3,8 +3,10 @@
  */
 package it.xpug.aggregator;
 
-import java.text.ParseException;
-import java.util.*;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class NewsCollection {
 

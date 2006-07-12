@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class XpugServlet extends HttpServlet 
 {
- 
 	public void doGet(HttpServletRequest req, HttpServletResponse rsp)
 			throws ServletException, IOException {
 		// ... handle GET requests
@@ -21,7 +20,6 @@ public class XpugServlet extends HttpServlet
 		out.println("<body>");
 		out.println("<p>This is a simple Servlet!</p>");
 		out.println("</body></html>");
-
 	}
 	
 	public void doPost(HttpServletRequest req, HttpServletResponse rsp)
