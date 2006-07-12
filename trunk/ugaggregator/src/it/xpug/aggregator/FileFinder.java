@@ -27,11 +27,16 @@ public class FileFinder {
 
 	public String getFileContent(File file) throws IOException {
 		BufferedReader in = new BufferedReader(new FileReader(file));
+		return getStreamContent(in);
+	}
+
+	static String getStreamContent(BufferedReader in) throws IOException {
 		String line;
 		String fileContent = "";
 		while ((line = in.readLine()) != null) {
 			fileContent = fileContent.concat(line + "\n");
 		}
+		in.close();
 		return fileContent;
 	}
 

@@ -1,5 +1,6 @@
 package it.xpug.aggregator;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -8,6 +9,20 @@ import java.io.IOException;
 import junit.framework.TestCase;
 
 public class FileFinderTest extends TestCase {
+	
+	public class FakeReader extends java.io.Reader {
+
+		boolean isClosed = false;
+		
+		public void close() throws IOException {
+			isClosed = true;
+		}
+
+		public int read(char[] cbuf, int off, int len) throws IOException {
+			return -1;
+		}
+	}
+
 	private String tmpDir;
 
 	private File newsDirectory;
@@ -19,6 +34,10 @@ public class FileFinderTest extends TestCase {
 		if (!newsDirectory.mkdir())
 			throw new IOException();
 		tmpDir = newsDirectory.getPath();
+	}
+
+	protected void tearDown() throws Exception {
+		deleteDir(newsDirectory);
 	}
 
 	public void testEmptyList() throws IOException {
@@ -112,10 +131,6 @@ public class FileFinderTest extends TestCase {
 		assertEquals("XPUGMinsk",finded[1].getUserGroup());
 	}
 	
-	protected void tearDown() throws Exception {
-		deleteDir(newsDirectory);
-	}
-
 	private void deleteDir(File dir) {
 		if (dir.isDirectory()) {
 			String[] children = dir.list();
@@ -134,4 +149,18 @@ public class FileFinderTest extends TestCase {
 		assertEquals("first\n", contents[0]);		
 	}
 
+	public void testGetFileContentsShouldReadContents()  throws Exception {
+		createFile("20051203_XPUGMilano_1.txt", "first\nsecond");
+		FileFinder fileFinder = new FileFinder(tmpDir,"\\d{8}_\\w+_\\d+\\.txt");
+		String contents = fileFinder.getFileContent(fileFinder.listFiles()[0]);
+		
+		assertEquals("first\nsecond\n", contents);	
+	}
+	
+	public void testShouldCloseStreamDammit() throws Exception {
+		FakeReader fakeReader = new FakeReader();
+		BufferedReader br = new BufferedReader(fakeReader);
+		FileFinder.getStreamContent(br);
+		assertTrue("reader not closed", fakeReader.isClosed);
+	}
 }
