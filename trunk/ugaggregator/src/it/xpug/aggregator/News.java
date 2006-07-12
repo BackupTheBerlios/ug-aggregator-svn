@@ -1,10 +1,8 @@
 package it.xpug.aggregator;
 
+import it.xpug.aggregator.util.CalendarDateUtil;
+
 import java.security.InvalidParameterException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class News {
@@ -32,8 +30,8 @@ public class News {
 				throw new InvalidNewsString();
 			itsTitle = strings[0];
 			itsDescription = strings[1];
-			itsInsertionDate = parseDate(strings[2], "yyyy/MM/dd HHmmss");
-			itsExpirationDate = parseDate(strings[3], "yyyy/MM/dd");
+			itsInsertionDate = CalendarDateUtil.parseYYYYMMDD_HHMMSS(strings[2]);
+			itsExpirationDate = CalendarDateUtil.parseYYYYMMDD(strings[3]);
 			this.userGroup = userGroup;
 		} catch (Exception e) {
 			throw new InvalidParameterException(e.getMessage());
@@ -54,14 +52,6 @@ public class News {
 
 	public GregorianCalendar expirationDate() {
 		return itsExpirationDate;
-	}
-
-	private GregorianCalendar parseDate(String dateAsString, String pattern) throws ParseException {
-		DateFormat format = new SimpleDateFormat(pattern);
-		Date parse = format.parse(dateAsString);
-		GregorianCalendar instance = (GregorianCalendar) GregorianCalendar.getInstance();
-		instance.setTime(parse);
-		return instance;
 	}
 
 	public String getUserGroup() {

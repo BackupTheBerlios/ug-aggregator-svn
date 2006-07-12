@@ -2,6 +2,7 @@ package it.xpug.aggregator;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.GregorianCalendar;
 
 import junit.framework.TestCase;
 
@@ -35,14 +36,10 @@ public class JSPDesignTest extends TestCase {
 	    public void testNewsListPage() throws MalformedURLException, IOException, SAXException
 		{	
 	    	NewsCollection newsCollection=new NewsCollection();
-	    	News news1=new News("Titolo news\n" + 
-	    			"Descrizione news\n" +
-	    			"2006/03/14 234412\n" + 
-	    			"2010/04/25\n", "milano-xpug");
-	    	News news2=new News("Titolo news2\n" + 
-	    			"Descrizione news2\n" +
-	    			"2006/02/14 234412\n" + 
-	    			"2010/04/25\n", "milano-xpug");
+	    	News news1=new News("Titolo news", "Descrizione news", new GregorianCalendar(2006, 2, 14, 23, 44, 12), 
+	    			new GregorianCalendar(2010, 3, 25), "milano-xpug");
+	    	News news2=new News("Titolo news2", "Descrizione news2", new GregorianCalendar(2006, 1, 14, 23, 44, 12), 
+	    			new GregorianCalendar(2010, 3, 25), "milano-xpug");
 	    	newsCollection.addNews(news1);
 	    	newsCollection.addNews(news2);
 	    	FakeNewsList.setNewsCollection(newsCollection);
@@ -54,7 +51,7 @@ public class JSPDesignTest extends TestCase {
 		    assertTrue(response1.getText().indexOf("<h2>Titolo news</h2>") > -1);	
 		    assertTrue(response1.getText().indexOf("Titolo news2</h2>") > -1);	
 		    assertTrue(response1.getText().indexOf("Titolo news</h2>")<response1.getText().indexOf("Titolo news2</h2>"));
-			}
+		}
 
 	    
 		
