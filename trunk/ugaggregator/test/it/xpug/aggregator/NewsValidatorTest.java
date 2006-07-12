@@ -9,7 +9,7 @@ public class NewsValidatorTest extends TestCase {
 		
 		String newsAsString = "Titolo news\n" + 
 								"Descrizione news\n" +
-								"2006/04/14\n" + 
+								"2006/04/14 000000\n" + 
 								"2007-04/--5\n";
 		
 		NewsValidator validator = new NewsValidator(newsAsString);
@@ -22,8 +22,8 @@ public class NewsValidatorTest extends TestCase {
 		
 		String newsAsString = "Titolo news\n" + 
 								"Descrizione news\n" +
-								"2006-04-14\n" + 
-								"2007/04/25\n";
+								"2006-04-14 000000\n" + 
+								"2007/04/25 000000\n";
 		
 		NewsValidator validator = new NewsValidator(newsAsString);
 		
@@ -35,7 +35,7 @@ public class NewsValidatorTest extends TestCase {
 		
 		String newsAsString = "Titolo news\n" + 
 								"Descrizione news\n" +
-								"2006/04/14\n" + 
+								"2006/04/14 000000\n" + 
 								"2005/04/25\n";
 				
 		NewsValidator validator = new NewsValidator(newsAsString);
@@ -48,7 +48,7 @@ public class NewsValidatorTest extends TestCase {
 		
 		String newsAsString = "Titolo news\n" + 
 								"Descrizione news\n" +
-								"2006/04/14\n" + 
+								"2006/04/14 000000\n" + 
 								"2007/04/25\n";
 				
 		NewsValidator validator = new NewsValidator(newsAsString);
@@ -61,8 +61,8 @@ public class NewsValidatorTest extends TestCase {
 
 		String newsAsString = "\n" + 
 								"Descrizione news\n" +
-								"2006/04/14\n" + 
-								"2007/04/25\n";
+								"2006/04/14 000000\n" + 
+								"2007/04/25 000000\n";
 
 		NewsValidator validator = new NewsValidator(newsAsString);
 

@@ -16,11 +16,11 @@ public class NewsFilterTest extends TestCase {
 	
 	public void testFilterUnchanged() {
 
-		News news = NewsBuilder.with("2010/04/25");
+		News news = NewsBuilder.withExpirationDate("2010/04/25");
 		
 		newsList.addNews(news);
 		
-		NewsCollection filteredNewsList = newsFilter.filter(newsList);
+		NewsCollection filteredNewsList = newsFilter.filterExpiredNews(newsList);
 		
 		News filteredNews = (News)filteredNewsList.newsList.first();
 		
@@ -29,9 +29,9 @@ public class NewsFilterTest extends TestCase {
 	
 	public void testFilterOneExpired() {
 
-		newsList.addNews(NewsBuilder.with("2005/04/25"));
+		newsList.addNews(NewsBuilder.withExpirationDate("2005/04/25"));
 		
-		assertEquals(0, newsFilter.filter(newsList).newsList.size());
+		assertEquals(0, newsFilter.filterExpiredNews(newsList).newsList.size());
 	}
 
 	

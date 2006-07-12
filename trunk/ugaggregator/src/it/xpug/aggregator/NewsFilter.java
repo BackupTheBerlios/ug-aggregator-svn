@@ -15,7 +15,7 @@ public class NewsFilter {
 		this.referenceDate = referenceDate;
 	}
 	
-	public NewsCollection filter(NewsCollection newsList2Filter) {
+	public NewsCollection filterExpiredNews(NewsCollection newsList2Filter) {
 		NewsCollection newsListFiltered = new NewsCollection();
 		
 		for (Iterator i = newsList2Filter.newsList.iterator(); i.hasNext(); ) {

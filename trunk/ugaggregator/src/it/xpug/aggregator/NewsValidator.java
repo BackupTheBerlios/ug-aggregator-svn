@@ -29,17 +29,24 @@ public class NewsValidator {
 		
 		String[] tokens = newsAsString.split("\n");
 				
-		appendError(checkDateFormat(tokens[REGISTRATION_DATE]), ERROR_INVALID_REGISTRATION_DATE_FORMAT);
+		appendError(checkRegistrationDateFormat(tokens[REGISTRATION_DATE]), ERROR_INVALID_REGISTRATION_DATE_FORMAT);
 		if (!valid) return;
 		
-		appendError(checkDateFormat(tokens[EXPIRATION_DATE]), ERROR_INVALID_EXPIRATION_DATE_FORMAT);
+		appendError(checkExpirationDateFormat(tokens[EXPIRATION_DATE]), ERROR_INVALID_EXPIRATION_DATE_FORMAT);
 		if (!valid) return;
 	
-		appendError(
-				checkRegistrationDateBeforeExpirationDate(
-						getDateFromString(tokens[REGISTRATION_DATE]), 
-						getDateFromString(tokens[EXPIRATION_DATE])), 
-				ERROR_EXPIRATION_DATE_BEFORE_TODAY);
+	
+		try {
+			appendError(
+					checkRegistrationDateBeforeExpirationDate(
+						 DateParser.parseRegistration(tokens[REGISTRATION_DATE]), 
+						 DateParser.parseExpiration(tokens[EXPIRATION_DATE])), 
+					ERROR_EXPIRATION_DATE_BEFORE_TODAY);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		if (!valid) return;
 			
 		appendError(checkTitle(tokens), ERROR_EMPTY_TITLE);
@@ -52,19 +59,31 @@ public class NewsValidator {
 		errMsg = errMsg + (condition ? "" : errorDescription);
 	}
 
-	private GregorianCalendar getDateFromString(String date) {
+
+	private boolean checkRegistrationDateFormat(String date) {
+
 		try
 		{
-			return parseDate(date);			
+			DateParser.parseRegistration(date);			
 		}
 		catch (ParseException e) {
-			return null;
+			return false;
 		}	
+
+		return true;		
 	}
 
-	private boolean checkDateFormat(String date) {
+	private boolean checkExpirationDateFormat(String date) {
 
-		return getDateFromString(date) != null;
+		try
+		{
+			DateParser.parseExpiration(date);			
+		}
+		catch (ParseException e) {
+			return false;
+		}	
+
+		return true;		
 	}
 
 	private boolean checkRegistrationDateBeforeExpirationDate(GregorianCalendar registrationDate, GregorianCalendar expirationDate) {
@@ -75,8 +94,6 @@ public class NewsValidator {
 		return !tokens[TITLE].equals("");
 	}
 	
-
-	
 	public boolean isValid() {
 		return valid;
 	}
@@ -84,14 +101,5 @@ public class NewsValidator {
 	public String errorMessage() {
 		return errMsg;
 	}
-	
-	private GregorianCalendar parseDate(String dateAsString) throws ParseException {
-		DateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-		Date parse = format.parse(dateAsString);
-		GregorianCalendar instance = (GregorianCalendar) GregorianCalendar.getInstance();
-		instance.setTime(parse);
-		return instance;
-	}
-
 	
 }

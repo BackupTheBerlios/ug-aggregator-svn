@@ -2,7 +2,7 @@ package it.xpug.aggregator;
 
 public class NewsBuilder {
 
-	public static News with(String expirationDate) {
+	public static News withExpirationDate(String expirationDate) {
 		return new News("Titolo news\n" + 
 		"Descrizione news\n" +
 		"2006/04/14 234412\n" + 
@@ -17,5 +17,7 @@ public class NewsBuilder {
 	public static News withAllFields(String newsAsString) {
 		return new News(newsAsString, "XPUGMI");
 	}
+	
+
 
 }
