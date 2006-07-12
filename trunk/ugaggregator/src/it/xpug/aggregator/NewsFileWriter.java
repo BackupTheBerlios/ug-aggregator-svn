@@ -16,7 +16,7 @@ public class NewsFileWriter {
 
 	public NewsFileWriter(News news) {
 		itsNews = news;
-		if (null == pathToWrite) pathToWrite = XpugServlet.DEFAULT_NEWSDB_DIR; 
+		if (null == pathToWrite) pathToWrite = InitServlet.DEFAULT_NEWSDB_DIR; 
 		new File(pathToWrite).mkdirs();
 	}
 

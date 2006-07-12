@@ -2,16 +2,25 @@
 <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN" "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
 <web-app>
    <description>web.xml file for xpug Milano</description>
+
    <servlet>
-      <servlet-name>news</servlet-name>
-      <servlet-class>it.xpug.aggregator.XpugServlet</servlet-class>
+      <servlet-name>init</servlet-name>
+      <servlet-class>it.xpug.aggregator.InitServlet</servlet-class>
       <init-param>
          <param-name>newsdb_dir</param-name>
          <param-value>newsdb</param-value>
       </init-param>
+      <load-on-startup>1</load-on-startup>
    </servlet>
+
+   <servlet>
+      <servlet-name>news</servlet-name>
+      <servlet-class>it.xpug.aggregator.XpugServlet</servlet-class>
+      <load-on-startup>100</load-on-startup>
+   </servlet>
+
    <servlet-mapping>
       <servlet-name>news</servlet-name>
-      <url-pattern>/*.html</url-pattern>
+      <url-pattern>/*</url-pattern>
    </servlet-mapping>
 </web-app>

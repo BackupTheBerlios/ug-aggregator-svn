@@ -3,11 +3,16 @@ package it.xpug.aggregator;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 import junit.framework.TestCase;
 
 public class NewsFileWriterTest extends TestCase {
 
+	protected void setUp() throws Exception {
+		System.setProperty(NewsFileWriter.IT_XPUG_AGGREGATOR_NEWS_DIR, InitServlet.DEFAULT_NEWSDB_DIR);
+	}
+	
 	protected void tearDown() throws Exception {
 		new File("pistacchio").delete();
 	}
