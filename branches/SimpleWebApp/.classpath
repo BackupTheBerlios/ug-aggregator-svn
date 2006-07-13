@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="acceptance"/>
+	<classpathentry kind="src" path="unit"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3.8.1"/>
+	<classpathentry sourcepath="lib/httpunit-1.6.2.zip" kind="lib" path="lib/httpunit.jar">
+		<attributes>
+			<attribute value="jar:file:/Users/matteo/Desktop/workspace/SimpleWebApp/lib/httpunit-1.6.2.zip!/httpunit-1.6.2/doc/api" name="javadoc_location"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/servlet.jar"/>
+	<classpathentry kind="lib" path="lib/Tidy.jar"/>
+	<classpathentry kind="lib" path="lib/js.jar"/>
+	<classpathentry kind="lib" path="lib/jasper-compiler.jar"/>
+	<classpathentry kind="lib" path="lib/jasper-runtime.jar"/>
+	<classpathentry kind="lib" path="lib/ant.jar"/>
+	<classpathentry kind="lib" path="lib/xhtmlvalidator-0.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
