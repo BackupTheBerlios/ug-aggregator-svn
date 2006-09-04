@@ -1,0 +1,83 @@
+.navigation {
+    color: white;
+	width: 800px;
+	padding: 1px;
+    margin-left: auto;
+    margin-right: auto;
+	margin-bottom: 1em;
+	margin-top: 1em;
+    background-color: #cccccc;
+}
+
+.menu {
+	padding-left: 2em;
+	padding-right: 2em;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.item {
+	display: inline;
+    padding: 0.2em;
+	font-size: 2.5em;
+	border: 1px solid white;
+}
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3px;
+    padding-bottom: 3px;
+	width: 800px;
+}
+
+.news {
+    background-color: #eeeeee;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin: 1em 0em;
+}
+
+.info {
+    color: white;
+    background-color: #cccccc;
+}
+
+.actions {
+	color: white;
+	background-color: #cccccc;
+	text-align: right;
+}
+
+.action {
+	color: black;
+	display: inline;
+	padding: 0.5em;
+	border: 1px solid black;
+}
+
+.insertion-date {
+    background-color: #999999;
+    color: white;
+    padding: 5px;
+    margin-left: 1em;
+	font-size: 2em;
+}
+
+.expiration-date {
+	display: none;
+}
+
+.title {
+    margin-left: 1em;
+	font-size: 1.5em;
+}
+
+.body {
+	font-size: 1.2em;
+	padding: 1em 2em;
+}
+
+.user-group {
+	display: none;
+}
