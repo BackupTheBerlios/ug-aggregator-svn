@@ -38,8 +38,8 @@ public class DoPost extends DoGet {
 
 		} finally {
 			end();
-			return this;
 
 		}
+		return this;
 	}
 }

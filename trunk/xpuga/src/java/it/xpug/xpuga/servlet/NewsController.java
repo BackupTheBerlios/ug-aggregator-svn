@@ -6,12 +6,11 @@ import javax.servlet.http.*;
 
 public class NewsController extends HttpServlet {
 
+	private static final long serialVersionUID = -1753743437930868893L;
 	private static String location = null;
 	private ServletContext context;
-	private ServletConfig config;
 	
 	public void init(ServletConfig config) throws ServletException {
-		this.config = config;
 		this.context = config.getServletContext();
 		initLocation(config.getInitParameter("location"));
 	}
@@ -25,6 +24,7 @@ public class NewsController extends HttpServlet {
 
 		// getRealLocation() + File.separator + "fileName";
 		// req.setAttribute("location", getLocation());
+		
 		req.getRequestDispatcher("/jsp/news/list.jsp").forward(req, res);
 	}
 
@@ -42,19 +42,19 @@ public class NewsController extends HttpServlet {
 
 
 	private void initLocation(String location) {
-		if (this.location == null)
+		if (NewsController.location == null)
 			setLocation(location);
 	}
 
 	private void setLocation(String location) {
 		synchronized(NewsController.class) {
-			this.location = location;
+			NewsController.location = location;
 		}
 	}
 
 	private String getLocation() {
 		synchronized(NewsController.class) {
-			return this.location;
+			return NewsController.location;
 		}
 	}
 

@@ -1,5 +1,3 @@
-import java.util.*;
-
 import org.w3c.dom.*;
 import org.apache.xpath.*;
 

@@ -39,9 +39,9 @@ public class DoGet {
 
 		} finally {
 			end();
-			return this;
 
 		}
+		return this;
 	}
 
 	public Document document() throws Exception {
