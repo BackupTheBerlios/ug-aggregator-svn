@@ -47,42 +47,9 @@ public class NewsController extends HttpServlet {
 			return;
 		}
 	
-		// TODO: insertion
-		StringBuffer errors = new StringBuffer();
-		errors.append("<errors>");
-		if (req.getParameter("title").equals(""))
-			errors.append("<error class='error' title='title'>Title couldn't be empty</error>");
-		if (req.getParameter("body").equals(""))
-			errors.append("<error class='error' title='body'>Body couldn't be empty</error>");
-		if (req.getParameter("user-group").equals(""))
-			errors.append("<error class='error' title='user-group'>UserGroup couldn't be empty</error>");
-		if (req.getParameter("expiration-date").equals(""))
-			errors.append("<error class='error' title='expiration-date'>ExpirationDate couldn't be empty</error>");
-		errors.append("</errors>");
-		if (errors.toString().indexOf("<error class=") > 0) {
-			res.setStatus(422);
-			res.getWriter().println(errors.toString());
-			return;
-		}
-
-		String insertionDate = XDate.getCode(new Date());
-		PrintWriter writer = new PrintWriter(new FileWriter(
-					getRealLocation() + File.separator + insertionDate));
-		writer.println(req.getParameter("title"));
-		writer.println(req.getParameter("body"));
-		writer.println(insertionDate);
-		writer.println(req.getParameter("expiration-date"));
-		writer.println(req.getParameter("user-group"));
-		writer.close();
-
-		res.setStatus(HttpServletResponse.SC_CREATED);
-		res.setHeader("Location", "/news/" + insertionDate);
-
-		// TODO: insertion
 
 
-		// TODO: restore
-		// res.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+		 res.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
 	}
 
 	private void doGetAllNews(HttpServletRequest req, HttpServletResponse res) 
@@ -106,10 +73,6 @@ public class NewsController extends HttpServlet {
 	private void setLocation(String location) {
 		synchronized(NewsController.class) {
 			NewsController.location = location;
-			// TODO: insertion
-			if (!new File(getRealLocation()).isDirectory())
-				new File(getRealLocation()).mkdirs();
-			// TODO: insertion
 		}
 	}
 
