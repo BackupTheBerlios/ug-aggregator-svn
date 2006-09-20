@@ -17,7 +17,7 @@
 	<taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask" classpath="${basedir}/lib/catalina-ant.jar"/>
 	<taskdef name="remove" classname="org.apache.catalina.ant.RemoveTask" classpath="${basedir}/lib/catalina-ant.jar"/>
 	<taskdef name="list" classname="org.apache.catalina.ant.ListTask" classpath="${basedir}/lib/catalina-ant.jar"/>
-
+		
 	<target name="prepare">
 		<mkdir dir="${basedir}/dist"/>
 		<mkdir dir="${basedir}/work"/>
@@ -77,8 +77,6 @@
 			<test name="OrderNewsTest"/>
 			<test name="InsertNewsTest"/>
 			<test name="InsertNewsWithNotEmptyFieldsTest"/>
-			<!-- <test name="InsertNewsWithValidFieldsTest"/> -->
-			<!-- <test name="ExpireNewsTest"/> -->
 		</junit>
 	</target>
 
@@ -116,16 +114,14 @@
 	</target>
 
 	<target name="remove" depends="_check_if_deployed" if="tomcat.application.is.deployed">
-		<remove url="${tomcat.manager}"
-				username="${tomcat.username}"
-				password="${tomcat.password}"
-				path="/${ant.project.name}"
-		/>
+		<echo message="Removing ${ant.project.name} ..."/>
+		<remove url="${tomcat.manager}"	username="${tomcat.username}" password="${tomcat.password}" path="/${ant.project.name}"	/>
 	</target>
+					
 
-	<target name="deploy" depends="dist,remove">
+	<target name="deploy" depends="remove,dist">
 		<condition property="war.path" 
-				value="file:/${basedir}/dist/${ant.project.name}"
+				value="file:/${basedir}/dist/${ant.project.name}.war"
 				else="file://${basedir}/dist/${ant.project.name}.war">
 			<os family="windows"/>
 		</condition>
