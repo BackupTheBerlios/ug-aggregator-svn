@@ -1,5 +1,6 @@
 package it.xpug.xpuga;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
@@ -47,5 +48,33 @@ public class NewsTest extends TestCase {
 		NewsPiece n3 = (NewsPiece) news.get(3);
 		assertEquals("20060903120002", n0.getInsertionDateAsCode());
 		assertEquals("20060902173559", n3.getInsertionDateAsCode());
+	}
+	
+	public void testInsertNews() throws Exception {
+		String fileName="20060920200104";
+		NewsPiece news = new NewsPiece();
+		news.setTitle("nuova news");
+		news.setBody("abbiamo una nuova news");
+		news.setGroupName("milano-xpug");
+		news.setInsertionDate("20060920200104");
+		news.setExpirationDate("20070920200104");
+		news.save(fileName);
+		File file=new File(fileName);
+		assertTrue("il file non è stato creato",file.exists());
+		NewsPiece readNews=new NewsPiece();
+		readNews.load(fileName);
+		assertEquals("nuova news",readNews.getTitle());
+		assertEquals("abbiamo una nuova news",readNews.getBody());
+		assertEquals("20060920200104",readNews.getInsertionDateAsCode());
+		assertEquals("20070920200104",readNews.getExpirationDateAsCode());
+		assertEquals("milano-xpug",readNews.getGroupName());
+		
+		file.delete();
+	}
+	
+	public void testNewsValidation() throws Exception {
+		NewsPiece news=new NewsPiece();
+		assertFalse(news.isValid());
+		
 	}
 }
