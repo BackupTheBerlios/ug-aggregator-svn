@@ -1,5 +1,6 @@
 
 
+
 public class LocationNewsTest extends HttpTestCase {
 
 	public LocationNewsTest(String name) {
