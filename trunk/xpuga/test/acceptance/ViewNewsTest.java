@@ -1,3 +1,4 @@
+
 import org.w3c.dom.*;
 
 public class ViewNewsTest extends HttpTestCase {
