@@ -3,6 +3,7 @@ package it.xpug.xpuga.servlet;
 import it.xpug.xpuga.*;
 
 import java.io.*;
+import java.text.ParseException;
 import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -39,17 +40,53 @@ public class NewsController extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
-			throws ServletException, IOException {
+			throws ServletException, IOException{
 
 		if ("/location".equals(req.getPathInfo())) {
+			synchronized(NewsController.class) {
+			Location location=new Location(context.getRealPath(req.getParameter("location")));
 			setLocation(req.getParameter("location"));
+			if (!location.exists()) {
+				location.create();
+				res.setStatus(201);
+				return;
+			}
 			res.sendRedirect("/news");
 			return;
+			}
 		}
-	
+		
+			synchronized(NewsController.class) {
+			try{
+			String newsFilename = saveNews(req);
+			res.setStatus(201);
+			res.setHeader("location","/news/"+newsFilename);
+			}
+			catch (ParseException e) {
+				res.setStatus(422);
+			} catch (NewsException e) {
+				res.setStatus(422);
+			}
+			doGetAllNews(req, res);
+			}
+	}
 
 
-		 res.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+	private String saveNews(HttpServletRequest req) throws ParseException, NewsException {
+		NewsPiece news=new NewsPiece();
+		news.setTitle(req.getParameter("title"));
+		news.setBody(req.getParameter("body"));
+		news.setGroupName(req.getParameter("user-group"));
+		String insertionDate=XDate.getCode(new Date());//req.getParameter("insertion-date");
+		news.setInsertionDate(insertionDate);
+		news.setExpirationDate(req.getParameter("expiration-date"));
+		if (!news.isValid()) {
+			//String errors[]=news.getWrongElements();
+		    throw new NewsException("news invalida");
+		 }
+		//System.out.println(getRealLocation());
+		news.save(getRealLocation()+"/"+insertionDate);
+		return insertionDate;
 	}
 
 	private void doGetAllNews(HttpServletRequest req, HttpServletResponse res) 
