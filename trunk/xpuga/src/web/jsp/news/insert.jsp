@@ -3,18 +3,18 @@
 <head>
   <title>Italian eXtreme Programming User Group News</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <link href="../css/master.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="<%= request.getContextPath() %>/css/master.css" media="screen, projection" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	
+
 	<div class="navigation">
 		<ul class="menu">
-			<li class="item">News</li>
+			<li class="item"><a ref="list" href="<%= request.getContextPath() %>/news">News</a></li>
 		</ul>
 	</div>
 
+	<form id="insert-news" action="<%= request.getContextPath() %>/news" method="post">
 	<div class="content">
-		<form id="insert-news" action="../news" method="post">
 			<p>
 				<div class="error" title="title">Error for this field</div>
 				<input name="title" id="title" size="22" tabindex="1" type="text">
@@ -39,15 +39,15 @@
 					<label for="expiration-date"><small>Expiration Date (required, format: YYYYMMDDHHMMSS)</small></label>
 				</input>
 			</p>
-		</form>
 	</div>
 
 	<div class="navigation">
 		<ul class="menu">
-			<li class="item"><a ref="insert" href="../news" onclick="document.getElementById('insert-news').submit();">Submit</a></li>
-			<li class="item"><a ref="list" href="../news">Cancel</a></li>
+			<input class="insert" type="submit" value="Insert"/>
+			<li class="item"><a ref="list" href="<%= request.getContextPath() %>/news">Cancel</a></li>
 		</ul>
 	</div>
+	</form>
 
 </body>
 </html>

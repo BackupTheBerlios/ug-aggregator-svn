@@ -76,7 +76,8 @@
 			<test name="ViewNewsTest"/>
 			<test name="OrderNewsTest"/>
 			<test name="InsertNewsTest"/>
-			<test name="InsertNewsWithNotEmptyFieldsTest"/>
+			<!-- <test name="InsertNewsWithNotEmptyFieldsTest"/> -->
+			<!-- <test name="InsertNewsWithValidFieldsValueTest"/> -->
 		</junit>
 	</target>
 

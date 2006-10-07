@@ -56,19 +56,23 @@ public class NewsController extends HttpServlet {
 			}
 		}
 		
-			synchronized(NewsController.class) {
-			try{
-			String newsFilename = saveNews(req);
-			res.setStatus(201);
-			res.setHeader("location","/news/"+newsFilename);
-			}
-			catch (ParseException e) {
+		synchronized(NewsController.class) {
+			try {
+				String newsFilename = saveNews(req);
+				res.setStatus(201);
+				res.setHeader("location", "/news/" + newsFilename);
+				doGetAllNews(req, res);
+
+			} catch (ParseException e) {
 				res.setStatus(422);
+				req.getRequestDispatcher("/jsp/news/insert.jsp").forward(req, res);
+
 			} catch (NewsException e) {
 				res.setStatus(422);
+				req.getRequestDispatcher("/jsp/news/insert.jsp").forward(req, res);
+
 			}
-			doGetAllNews(req, res);
-			}
+		}
 	}
 
 
@@ -77,7 +81,7 @@ public class NewsController extends HttpServlet {
 		news.setTitle(req.getParameter("title"));
 		news.setBody(req.getParameter("body"));
 		news.setGroupName(req.getParameter("user-group"));
-		String insertionDate=XDate.getCode(new Date());//req.getParameter("insertion-date");
+		String insertionDate = XDate.getCode(new Date());//req.getParameter("insertion-date");
 		news.setInsertionDate(insertionDate);
 		news.setExpirationDate(req.getParameter("expiration-date"));
 		if (!news.isValid()) {

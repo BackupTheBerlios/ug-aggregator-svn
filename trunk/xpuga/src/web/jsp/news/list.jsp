@@ -3,13 +3,13 @@
 <head>
   <title>Italian eXtreme Programming User Group News</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <link href="css/master.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="<%= request.getContextPath() %>/css/master.css" media="screen, projection" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	
 	<div class="navigation">
 		<ul class="menu">
-			<li class="item">News</li>
+			<li class="item"><a ref="list" href="<%= request.getContextPath() %>/news">News</a></li>
 		</ul>
 	</div>
 
@@ -38,7 +38,7 @@
 
 	<div class="navigation">
 		<ul class="menu">
-			<li class="item"><a ref="insert-news" href="news/form">Insert</a></li>
+			<li class="item"><a ref="insert" href="<%= request.getContextPath() %>/news/form">Insert</a></li>
 		</ul>
 	</div>
 </body>

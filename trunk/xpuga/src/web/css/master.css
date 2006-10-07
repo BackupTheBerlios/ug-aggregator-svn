@@ -32,6 +32,15 @@
 	text-decoration: none;
 }
 
+.insert {
+	display: inline;
+	padding: 0.2em;
+	font-size: 2.5em;
+	border: 1px solid white;
+	color: white;
+	background-color: #cccccc;
+}
+
 .content {
 	margin-left: auto;
 	margin-right: auto;
