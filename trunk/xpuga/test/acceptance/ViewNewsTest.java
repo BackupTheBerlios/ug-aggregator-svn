@@ -7,17 +7,17 @@ public class ViewNewsTest extends HttpTestCase {
 		super(name);
 	}
 
-	public void testNoNewsWith() throws Exception {
+	public void testNoNews() throws Exception {
 		setLocation("/fixtures/news/noNews");
 		assertNumberOfNewsOnPage(0);
 	}
 
-	public void testOneNewsWith() throws Exception {
+	public void testOneNews() throws Exception {
 		setLocation("/fixtures/news/oneNews");
 		assertNumberOfNewsOnPage(1);
 	}
 
-	public void testFewNewswith() throws Exception {
+	public void testFewNews() throws Exception {
 		setLocation("/fixtures/news/fewNews");
 		new ProcessNewsList() {
 			public void all(Document document) throws Exception {
