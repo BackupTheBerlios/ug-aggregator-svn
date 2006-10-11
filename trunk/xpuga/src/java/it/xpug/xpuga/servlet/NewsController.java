@@ -41,7 +41,7 @@ public class NewsController extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException{
-
+		
 		if ("/location".equals(req.getPathInfo())) {
 			synchronized(NewsController.class) {
 			Location location=new Location(context.getRealPath(req.getParameter("location")));
@@ -58,6 +58,7 @@ public class NewsController extends HttpServlet {
 		
 		synchronized(NewsController.class) {
 			try {
+				
 				String newsFilename = saveNews(req);
 				res.setStatus(201);
 				res.setHeader("location", "/news/" + newsFilename);
@@ -78,17 +79,18 @@ public class NewsController extends HttpServlet {
 
 	private String saveNews(HttpServletRequest req) throws ParseException, NewsException {
 		NewsPiece news=new NewsPiece();
+		req.setAttribute("errata-news", news);
 		news.setTitle(req.getParameter("title"));
 		news.setBody(req.getParameter("body"));
 		news.setGroupName(req.getParameter("user-group"));
 		String insertionDate = XDate.getCode(new Date());//req.getParameter("insertion-date");
 		news.setInsertionDate(insertionDate);
 		news.setExpirationDate(req.getParameter("expiration-date"));
+		
 		if (!news.isValid()) {
-			//String errors[]=news.getWrongElements();
 		    throw new NewsException("news invalida");
-		 }
-		//System.out.println(getRealLocation());
+		}
+		
 		news.save(getRealLocation()+"/"+insertionDate);
 		return insertionDate;
 	}
