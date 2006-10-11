@@ -89,12 +89,47 @@ public class NewsPiece {
 	}
 
 	public boolean isValid() {
-		if (((title==null) || "".equals(title))||
-			((body==null) || "".equals(body))||
-			((insertionDate==null) )||
-			((expirationDate==null) )||
-			((groupName==null) || "".equals(groupName)))
+		if ((!this.isTitleValid())||
+			(!this.isBodyValid())||
+			(!this.isInsertionDateValid())||
+			(!this.isExpirationDateValid())||
+			(!this.isGroupValid()))
 		{		return false;}
+		return true;
+	}
+	
+	public boolean isTitleValid() {
+		if((title==null) || "".equals(title)) {
+		return false;
+		}
+		return true;
+	}
+
+	public boolean isBodyValid() {
+		if ((body==null) || "".equals(body)) {
+		return false;
+		}
+		return true;
+	}
+
+	public boolean isGroupValid() {
+		if((groupName==null) || "".equals(groupName)) {
+		return false;
+		}
+		return true;
+	}
+
+	public boolean isInsertionDateValid() {
+		if(insertionDate==null) {
+		return false;
+		}
+		return true;
+	}
+
+	public boolean isExpirationDateValid() {
+		if(expirationDate==null) {
+		return false;
+		}
 		return true;
 	}
 
