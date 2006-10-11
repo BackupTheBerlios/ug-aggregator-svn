@@ -3,7 +3,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import org.w3c.dom.Document;
 
@@ -47,7 +49,26 @@ public class InsertNews extends HttpTestCase {
 			}.execute();
 		}
 
-	}
+		protected void assertValidFieldsNotSignaledAsWrong(final Map news, final String[] emptyFields) throws Exception {
+			
+			new ProcessDocument(document()) {
+				public void all(Document document) throws Exception {
+					Set newsSet = news.keySet();
+					for (int i = 0; i < emptyFields.length; i++) {
+						newsSet.remove(emptyFields[i]);
+					}
+					Iterator newsFieldIterator=news.keySet().iterator();
+					while (newsFieldIterator.hasNext()){
+						String field=(String) newsFieldIterator.next();
+						assertFalse(evalAsBoolean(document, "//*[@class='error'][@title='" + field + "']"));
+					}
+				}
+			}.execute();
+			
+			}
+			
+		}
+	
 
 	public static Map validNews() {
 		Map news = new HashMap();

@@ -16,6 +16,7 @@ public class InsertNewsWithNotEmptyFieldsTest extends HttpTestCase {
 			public void process() throws Exception {
 				assertEquals(422, status);
 				assertInvalidFields(emptyFields);
+				assertValidFieldsNotSignaledAsWrong(news,emptyFields);
 			}
 		}.execute();
 	}
