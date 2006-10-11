@@ -52,15 +52,10 @@ public class NewsTest extends TestCase {
 	
 	public void testInsertNews() throws Exception {
 		String fileName="20060920200104";
-		NewsPiece news = new NewsPiece();
-		news.setTitle("nuova news");
-		news.setBody("abbiamo una nuova news");
-		news.setGroupName("milano-xpug");
-		news.setInsertionDate("20060920200104");
-		news.setExpirationDate("20070920200104");
+		NewsPiece news = getNews("nuova news", "abbiamo una nuova news", "milano-xpug", "20060920200104", "20070920200104");
 		news.save(fileName);
 		File file=new File(fileName);
-		assertTrue("il file non è stato creato",file.exists());
+		assertTrue("il file non ï¿½ stato creato",file.exists());
 		NewsPiece readNews=new NewsPiece();
 		readNews.load(fileName);
 		assertEquals("nuova news",readNews.getTitle());
@@ -71,10 +66,74 @@ public class NewsTest extends TestCase {
 		
 		file.delete();
 	}
+
+	private NewsPiece getNews(String title, String body, String groupName, String insertionDate, String expirationDate) throws ParseException {
+		NewsPiece news = new NewsPiece();
+		
+		news.setTitle(title);
+		news.setBody(body);
+		news.setGroupName(groupName);
+		news.setInsertionDate(insertionDate);
+		news.setExpirationDate(expirationDate);
+		return news;
+	}
 	
 	public void testNewsValidation() throws Exception {
 		NewsPiece news=new NewsPiece();
 		assertFalse(news.isValid());
-		
 	}
+	
+	
+	public void testNewsTitleValidation() throws Exception {
+		NewsPiece news = getNews(null, "abbiamo una nuova news", "milano-xpug", "20060920200104", "20070920200104");
+		assertFalse(news.isTitleValid());
+		
+		news = getNews("", "abbiamo una nuova news", "milano-xpug", "20060920200104", "20070920200104");
+		assertFalse(news.isTitleValid());
+		
+		assertFalse(news.isValid());
+	}
+	
+	public void testNewsBodyValidation() throws Exception {
+		NewsPiece news = getNews("newstitle", null, "milano-xpug", "20060920200104", "20070920200104");
+		assertFalse(news.isBodyValid());
+		
+		news = getNews("newstitle", "", "milano-xpug", "20060920200104", "20070920200104");
+		assertFalse(news.isBodyValid());
+		
+		assertFalse(news.isValid());
+	}
+	
+	public void testNewsGroupValidation() throws Exception {
+		NewsPiece news = getNews("newstitle", "newsbody", null, "20060920200104", "20070920200104");
+		assertFalse(news.isGroupValid());
+		
+		news = getNews("newstitle", "newsbody", "", "20060920200104", "20070920200104");
+		assertFalse(news.isGroupValid());
+		
+		assertFalse(news.isValid());
+	}
+	
+	public void testNewsInsertionDateValidation() throws Exception {
+		NewsPiece news = new NewsPiece();
+		news.setTitle("newstitle");
+		news.setBody("newsbody");
+		news.setGroupName("mi-xpug");
+		news.setExpirationDate("20070920200104");
+		assertFalse(news.isInsertionDateValid());
+		
+		assertFalse(news.isValid());
+	}
+	
+	public void testNewsExpirationDateValidation() throws Exception {
+		NewsPiece news = new NewsPiece();
+		news.setTitle("newstitle");
+		news.setBody("newsbody");
+		news.setGroupName("mi-xpug");
+		news.setInsertionDate("20060920200104");
+		assertFalse(news.isExpirationDateValid());
+		
+		assertFalse(news.isValid());
+	}
+	
 }
