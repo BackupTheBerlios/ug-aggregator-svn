@@ -1,8 +1,8 @@
 
 
-import org.w3c.dom.Document;
+import junit.framework.TestCase;
 
-import junit.framework.*;
+import org.w3c.dom.Document;
 
 // TODO: rename to XpugaTestCase
 public class HttpTestCase extends TestCase {

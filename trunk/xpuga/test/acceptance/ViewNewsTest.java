@@ -1,5 +1,5 @@
 
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
 
 public class ViewNewsTest extends HttpTestCase {
 

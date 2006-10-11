@@ -1,8 +1,4 @@
-import java.io.*;
-import java.util.*;
-import java.text.*;
-
-import org.w3c.dom.*; 
+import java.util.Map;
 
 public class InsertNewsWithValidFieldsValueTest extends HttpTestCase {
 

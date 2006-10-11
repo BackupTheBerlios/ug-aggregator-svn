@@ -1,4 +1,5 @@
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class OrderNewsTest extends HttpTestCase {
 

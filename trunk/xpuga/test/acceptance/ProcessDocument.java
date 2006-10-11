@@ -1,5 +1,7 @@
-import org.w3c.dom.*;
-import org.apache.xpath.*;
+import org.apache.xpath.XPathAPI;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 
 public class ProcessDocument {

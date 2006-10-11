@@ -1,10 +1,5 @@
 
-import java.util.*;
-import java.text.*;
-
-import org.w3c.dom.*; 
-
-import junit.framework.*;
+import java.util.Map;
 
 public class ProcessNews extends HttpTestCase {
 

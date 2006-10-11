@@ -1,10 +1,11 @@
 
-import java.util.*;
-import java.text.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.w3c.dom.*; 
-
-import junit.framework.*;
+import org.w3c.dom.Document;
 
 public class InsertNews extends HttpTestCase {
 

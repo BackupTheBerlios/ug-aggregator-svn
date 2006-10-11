@@ -1,10 +1,9 @@
 
 
-import java.io.*;
-import java.util.*;
-import java.text.*;
+import java.io.File;
+import java.util.Map;
 
-import org.w3c.dom.*; 
+import org.w3c.dom.Document;
 
 public class InsertNewsTest extends HttpTestCase {
 
