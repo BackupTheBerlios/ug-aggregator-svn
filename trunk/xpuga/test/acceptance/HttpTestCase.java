@@ -8,6 +8,7 @@ import org.w3c.dom.Document;
 public class HttpTestCase extends TestCase {
 
 	protected static final String DEFAULT_LOCATION = "/data/news";
+	private static final String DEFAULT_URL = "http://localhost:8080/xpuga";
 
 	public HttpTestCase(String name) {
 		super(name);
@@ -46,7 +47,12 @@ public class HttpTestCase extends TestCase {
 	}
 
 	protected static String urlFor(String relativePath) {
-		return System.getProperty("xpuga.url") + relativePath;
+		String url = System.getProperty("xpuga.url");
+		if (null == url) url = DEFAULT_URL;
+		return url + relativePath;
+	}
+	
+	public void testTruth() throws Exception {		
 	}
 
 }
