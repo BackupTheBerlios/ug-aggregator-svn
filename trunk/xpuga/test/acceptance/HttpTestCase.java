@@ -7,7 +7,7 @@ import org.w3c.dom.Document;
 // TODO: rename to XpugaTestCase
 public class HttpTestCase extends TestCase {
 
-	protected static final String DEFAULT_LOCATION = "/data/news";
+	protected static final String DEFAULT_LOCATION = "data/news";
 	private static final String DEFAULT_URL = "http://localhost:8080/xpuga";
 
 	public HttpTestCase(String name) {
