@@ -37,7 +37,7 @@
 	</target>
 
 	<target name="_compile">
-		<javac srcdir="${srcdir}" destdir="${destdir}" debug="on" optimize="off" deprecation="on" target="1.4">
+		<javac srcdir="${srcdir}" destdir="${destdir}" debug="on" optimize="off" deprecation="on" target="1.4" source="1.4">
 			<classpath refid="local.classpath"/>
 		</javac>
 	</target>
@@ -68,7 +68,7 @@
 	</target>
 
 	<target name="acceptance" depends="deploy">
-		<junit haltonfailure="yes" haltonerror="yes">
+		<junit haltonfailure="no" haltonerror="yes">
 			<formatter type="plain" usefile="false"/>
 			<sysproperty key="${ant.project.name}.url" value="${test.acceptance.url}"/>
 			<classpath refid="local.classpath"/>
