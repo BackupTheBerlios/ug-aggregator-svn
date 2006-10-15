@@ -1,19 +1,43 @@
 
 
 
-public class LocationNewsTest extends HttpTestCase {
+
+public class LocationNewsTest extends XpugaTestCase {
 
 	public LocationNewsTest(String name) {
 		super(name);
 	}
 
-	public void testDefaultLocation() throws Exception {
+	/*
+	 * Per testare manualmente il settaggio della locazione: 
+	 * wget --post-data 'location=/tmp/picio/pacio' http://localhost:8080/xpuga/news/location
+	 */
+	public void testSetAbsoluteLocation() throws Exception {
+		String tempDir = getSystemTempDir();
+		final String path = tempDir + "/fixtures/pippo/pluto";
+		postNewsLocation(path);
+		assertNewsLocation("modified news location", path);
+		
+		assertEquals(path, get("/news/location"));
+		assertEquals(path, get("/news/location/path"));
+		
+		postNewsLocation(DEFAULT_LOCATION);
 		assertNewsLocation("default news location", DEFAULT_LOCATION);
 	}
 
-	public void testSetLocation() throws Exception {
-		postNewsLocation("/fixtures/news/oneNews");
-		assertNewsLocation("modified news location", "/fixtures/news/oneNews");
+	private String get(String url) throws Exception {
+		DoGet get = new DoGet(urlFor(url)) {
+			public void process() throws Exception {
+				assertEquals(200, status);
+			}
+		};
+		get.execute();
+		return get.content();
+	}
+
+	public void testSetRelativeLocation() throws Exception {
+		postNewsLocation("fixtures/news/oneNews");
+		assertNewsLocation("modified news location", "fixtures/news/oneNews");
 		
 		postNewsLocation(DEFAULT_LOCATION);
 		assertNewsLocation("default news location", DEFAULT_LOCATION);

@@ -1,6 +1,6 @@
 import java.util.Map;
 
-public class InsertNewsWithNotEmptyFieldsTest extends HttpTestCase {
+public class InsertNewsWithNotEmptyFieldsTest extends XpugaTestCase {
 
 	public InsertNewsWithNotEmptyFieldsTest(String name) {
 		super(name);

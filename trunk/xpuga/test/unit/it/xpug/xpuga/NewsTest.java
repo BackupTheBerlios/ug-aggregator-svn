@@ -55,7 +55,7 @@ public class NewsTest extends TestCase {
 		NewsPiece news = getNews("nuova news", "abbiamo una nuova news", "milano-xpug", "20060920200104", "20070920200104");
 		news.save(fileName);
 		File file=new File(fileName);
-		assertTrue("il file non � stato creato",file.exists());
+		assertTrue("il file non e' stato creato",file.exists());
 		NewsPiece readNews=new NewsPiece();
 		readNews.load(fileName);
 		assertEquals("nuova news",readNews.getTitle());

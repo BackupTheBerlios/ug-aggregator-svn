@@ -1,19 +1,27 @@
+import java.io.File;
 import java.util.Map;
 
-public class InsertNewsWithValidFileds2Test extends HttpTestCase {
+public class InsertNewsWithValidFields2Test extends XpugaTestCase {
 
-	public InsertNewsWithValidFileds2Test(String name) {
-		super(name);
+	private File newsLocation;
+
+	public void setUp() throws Exception {
+		super.setUp();
+		newsLocation = createUniqueTempDir();
+		setLocation(newsLocation.getAbsolutePath());
+	}
+	
+	public void tearDown() throws Exception {
+		newsLocation.delete();
 	}
 
 	public void testInsertInvalidExpirationDate() throws Exception {
-		setLocation("/insert/newsWithInvalidExpirationDate");
-
 		Map news = InsertNews.validNews();
 		news.put("expiration-date", "2007-07-04 210000"); 
 
 		new InsertNews.Implementation(news) {
 			public void process() throws Exception {
+				System.out.println(content());
 				assertEquals(422, status);
 				assertInvalidFields(new String[] { "expiration-date" });
 			}
@@ -21,10 +29,8 @@ public class InsertNewsWithValidFileds2Test extends HttpTestCase {
 	}
 
 	public void testInsertionWithoutHtmlTags() throws Exception {
-		setLocation("/insert/newsWithHtmlTags");
-
 		Map news = InsertNews.validNews();
-		news.put("body", "<b>Il grassetto è bello, ma inadatto al testo di una news</b>");
+		news.put("body", "<b>Il grassetto e' bello, ma inadatto al testo di una news</b>");
 
 		new InsertNews.Implementation(news) {
 			public void process() throws Exception {
@@ -35,10 +41,8 @@ public class InsertNewsWithValidFileds2Test extends HttpTestCase {
 	}
 
 	public void testInsertionWithLowerThenSymbol() throws Exception {
-		setLocation("/insert/newsWithLowerThenSymbol");
-
 		Map news = InsertNews.validNews();
-		news.put("body", "Dire 3<2 è scorretto, ma  una news accettabile");
+		news.put("body", "Dire 3<2 ? scorretto, ma e'una news accettabile");
 
 		new InsertNews.Implementation(news) {
 			public void process() throws Exception {
@@ -48,10 +52,8 @@ public class InsertNewsWithValidFileds2Test extends HttpTestCase {
 	}
 	
 	public void testInsertionWithoutHtmlTagsInTitle() throws Exception {
-		setLocation("/insert/newsWithHtmlTags");
-
 		Map news = InsertNews.validNews();
-		news.put("title", "<b>Il grassetto è bello, ma inadatto al testo di una news</b>");
+		news.put("title", "<b>Il grassetto ? bello, ma inadatto al testo di una news</b>");
 
 		new InsertNews.Implementation(news) {
 			public void process() throws Exception {
@@ -62,16 +64,13 @@ public class InsertNewsWithValidFileds2Test extends HttpTestCase {
 	}
 
 	public void testInsertionWithLowerThenSymbolInTitle() throws Exception {
-		setLocation("/insert/newsWithLowerThenSymbolInTitle");
-
 		Map news = InsertNews.validNews();
-		news.put("title", "Dire 3<2 è scorretto, ma è una news accettabile");
+		news.put("title", "Dire 3<2 ? scorretto, ma ? una news accettabile");
 
 		new InsertNews.Implementation(news) {
 			public void process() throws Exception {
 				assertEquals(201, status);
 			}
 		}.execute();
-	}
-	
+	}	
 }

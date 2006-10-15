@@ -1,16 +1,23 @@
 
 
+import java.io.File;
+import java.io.IOException;
+
 import junit.framework.TestCase;
 
 import org.w3c.dom.Document;
 
 // TODO: rename to XpugaTestCase
-public class HttpTestCase extends TestCase {
+public class XpugaTestCase extends TestCase {
 
 	protected static final String DEFAULT_LOCATION = "data/news";
-	private static final String DEFAULT_URL = "http://localhost:8080/xpuga";
+	protected static final String DEFAULT_URL = "http://localhost:8080/xpuga";
 
-	public HttpTestCase(String name) {
+	public XpugaTestCase() {
+		super();
+	}
+
+	public XpugaTestCase(String name) {
 		super(name);
 	}
 
@@ -55,4 +62,16 @@ public class HttpTestCase extends TestCase {
 	public void testTruth() throws Exception {		
 	}
 
+	protected String getSystemTempDir() throws IOException {
+		return File.createTempFile("aaa", "bbb").getParent();
+	}
+
+	protected File createUniqueTempDir() throws IOException {
+		File directory = File.createTempFile("xpuga", "");
+		if (!directory.delete())
+			throw new IOException();
+		if (!directory.mkdir())
+			throw new IOException();
+		return directory;
+	}
 }

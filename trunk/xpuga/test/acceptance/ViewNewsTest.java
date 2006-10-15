@@ -1,24 +1,24 @@
 
 import org.w3c.dom.Document;
 
-public class ViewNewsTest extends HttpTestCase {
+public class ViewNewsTest extends XpugaTestCase {
 
 	public ViewNewsTest(String name) {
 		super(name);
 	}
 
 	public void testNoNews() throws Exception {
-		setLocation("/fixtures/news/noNews");
+		setLocation("fixtures/news/noNews");
 		assertNumberOfNewsOnPage(0);
 	}
 
 	public void testOneNews() throws Exception {
-		setLocation("/fixtures/news/oneNews");
+		setLocation("fixtures/news/oneNews");
 		assertNumberOfNewsOnPage(1);
 	}
 
 	public void testFewNews() throws Exception {
-		setLocation("/fixtures/news/fewNews");
+		setLocation("fixtures/news/fewNews");
 		new ProcessNewsList() {
 			public void all(Document document) throws Exception {
 				assertNumberOfNewsOnPage(4);

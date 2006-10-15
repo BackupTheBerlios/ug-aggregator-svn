@@ -7,7 +7,7 @@
 		<servlet-class>it.xpug.xpuga.servlet.NewsController</servlet-class>
 		<init-param>
 			<param-name>location</param-name>
-			<param-value>/data/news</param-value>
+			<param-value>data/news</param-value>
 		</init-param>
 	</servlet>
 

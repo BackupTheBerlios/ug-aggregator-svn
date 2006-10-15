@@ -1,13 +1,13 @@
 import java.util.Map;
 
-public class InsertNewsWithValidFieldsValueTest extends HttpTestCase {
+public class InsertNewsWithValidFieldsValueTest extends XpugaTestCase {
 
 	public InsertNewsWithValidFieldsValueTest(String name) {
 		super(name);
 	}
 
 	public void testInsertInvalidUserGroup() throws Exception {
-		setLocation("/insert/newsWithInvalidUserGroup");
+		setLocation("insert/newsWithInvalidUserGroup");
 
 		Map news = InsertNews.validNews();
 		news.put("user-group", "some-strange-group");
@@ -21,7 +21,7 @@ public class InsertNewsWithValidFieldsValueTest extends HttpTestCase {
 	}
 
 	public void testInsertionDateBeforeExpirationDate() throws Exception {
-		setLocation("/insert/newsWithInvalidExpirationDate");
+		setLocation("insert/newsWithInvalidExpirationDate");
 
 		Map news = InsertNews.validNews();
 		news.put("expiration-date", "20050101000000");

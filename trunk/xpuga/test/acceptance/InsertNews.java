@@ -9,7 +9,7 @@ import java.util.Set;
 
 import org.w3c.dom.Document;
 
-public class InsertNews extends HttpTestCase {
+public class InsertNews extends XpugaTestCase {
 
 	public InsertNews(String name) {
 		super(name);

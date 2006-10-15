@@ -11,7 +11,7 @@ import javax.servlet.http.*;
 public class NewsController extends HttpServlet {
 
 	private static final long serialVersionUID = -1753743437930868893L;
-	private static String location = null;
+	private static Location location = null;
 	private ServletContext context;
 	
 	public void init(ServletConfig config) throws ServletException {
@@ -24,11 +24,13 @@ public class NewsController extends HttpServlet {
 			throws ServletException, IOException {
 
 		if ("/location".equals(req.getPathInfo())) {
-			doGetLocation(req, res); return;
+			doGetLocation(req, res); 
+			return;
 		}
 
 		if ("/location/path".equals(req.getPathInfo())) {
-			doGetRealLocation(req, res); return;
+			doGetRealLocation(req, res); 
+			return;
 		}
 
 		if ("/form".equals(req.getPathInfo())) {
@@ -44,15 +46,14 @@ public class NewsController extends HttpServlet {
 		
 		if ("/location".equals(req.getPathInfo())) {
 			synchronized(NewsController.class) {
-			Location location=new Location(context.getRealPath(req.getParameter("location")));
-			setLocation(req.getParameter("location"));
-			if (!location.exists()) {
-				location.create();
-				res.setStatus(201);
+				location = new Location(context.getRealPath("."), req.getParameter("location"));
+				if (!location.exists()) {
+					location.create();
+					res.setStatus(201);
+					return;
+				}
+				res.sendRedirect("/news");
 				return;
-			}
-			res.sendRedirect("/news");
-			return;
 			}
 		}
 		
@@ -91,7 +92,7 @@ public class NewsController extends HttpServlet {
 		    throw new NewsException("news invalida");
 		}
 		
-		news.save(getRealLocation()+"/"+insertionDate);
+		news.save(getRealLocation() + "/"+insertionDate);
 		return insertionDate;
 	}
 
@@ -108,32 +109,20 @@ public class NewsController extends HttpServlet {
 
 	}
 
-	private void initLocation(String location) {
+	private void initLocation(String path) {
 		if (NewsController.location == null)
-			setLocation(location);
-	}
-
-	private void setLocation(String location) {
-		synchronized(NewsController.class) {
-			NewsController.location = location;
-		}
-	}
-
-	private String getLocation() {
-		synchronized(NewsController.class) {
-			return NewsController.location;
-		}
+			NewsController.location = new Location(context.getRealPath("."), path);
 	}
 
 	private String getRealLocation() {
-		return context.getRealPath(getLocation());
+		return NewsController.location.getAbsolutePath();
 	}
 
 	private void doGetLocation(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 
 		res.setContentType("text/plain");
-		res.getWriter().println(getLocation());
+		res.getWriter().println(NewsController.location.getPath());
 	}
 
 	private void doGetRealLocation(HttpServletRequest req, HttpServletResponse res)

@@ -5,29 +5,23 @@ import java.util.Map;
 
 import org.w3c.dom.Document;
 
-public class InsertNewsTest extends HttpTestCase {
+public class InsertNewsTest extends XpugaTestCase {
 
 	private String locationNewsCreated;
 	private Map newsToInsert;
+	private File newsLocation;
 
-	public InsertNewsTest(String name) {
-		super(name);
+	public void setUp() throws Exception {
+		super.setUp();
+		newsLocation = createUniqueTempDir();
+		setLocation(newsLocation.getAbsolutePath());
 	}
-
-	public void testCreateLocationIfNotExists() throws Exception {
-		setLocation("/insert/noNews");
-		new DoGet(urlFor("/news/location/path")) {
-			public void process() throws Exception {
-				assertEquals(200, status);
-				assertTrue("created news location: " + content(),
-						new File(content()).isDirectory());
-			}
-		}.execute();
+	
+	public void tearDown() throws Exception {
+		newsLocation.delete();
 	}
-
+	
 	public void testInsertOneNews() throws Exception {
-		setLocation("/insert/oneNews");
-
 		newsToInsert = InsertNews.validNews();
 		new InsertNews.Implementation(newsToInsert) {
 			public void process() throws Exception {

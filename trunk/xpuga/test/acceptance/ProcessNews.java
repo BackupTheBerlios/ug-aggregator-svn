@@ -1,7 +1,7 @@
 
 import java.util.Map;
 
-public class ProcessNews extends HttpTestCase {
+public class ProcessNews extends XpugaTestCase {
 
 	public ProcessNews(String name) {
 		super(name);

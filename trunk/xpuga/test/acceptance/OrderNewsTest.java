@@ -1,14 +1,14 @@
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-public class OrderNewsTest extends HttpTestCase {
+public class OrderNewsTest extends XpugaTestCase {
 
 	public OrderNewsTest(String name) {
 		super(name);
 	}
 	
 	public void testFewNewsOrdered() throws Exception {
-		setLocation("/fixtures/news/fewNews");
+		setLocation("fixtures/news/fewNews");
 		assertNumberOfNewsOnPage(4);
 
 		new ProcessOrderedNews() {
