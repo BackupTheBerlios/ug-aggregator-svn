@@ -1,0 +1,136 @@
+Oct 12, 2006 2:46:00 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 2:46:00 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 2:46:02 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 2:46:02 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 12, 2006 2:46:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 2:46:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 2:46:09 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 2:46:09 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 12, 2006 2:47:00 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 2:47:00 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 2:47:02 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 2:47:02 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 12, 2006 2:48:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 2:48:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 2:48:28 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 2:48:28 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 12, 2006 2:49:17 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 2:49:17 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 2:49:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 2:49:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 12, 2006 2:57:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 2:57:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 2:57:22 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 2:57:22 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 12, 2006 2:58:39 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 2:58:39 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 2:58:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 2:58:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 12, 2006 3:17:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 3:17:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 3:21:32 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 3:21:35 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 3:21:35 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 12, 2006 3:21:39 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 3:21:39 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 3:21:42 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 3:21:42 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 12, 2006 3:27:42 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 3:27:42 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 3:28:29 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 3:28:56 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 3:30:33 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 3:30:36 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 3:30:36 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 12, 2006 3:30:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 3:30:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 3:30:43 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 3:30:43 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 12, 2006 3:31:33 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 3:31:33 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 3:31:35 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 3:31:35 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 12, 2006 3:32:38 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 3:32:38 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 3:32:40 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 3:32:40 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 12, 2006 3:34:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 3:34:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 3:34:28 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 3:34:28 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 12, 2006 3:35:10 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 3:35:10 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 3:35:13 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 3:35:13 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 12, 2006 3:52:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 12, 2006 3:52:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 12, 2006 3:52:29 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 12, 2006 3:52:29 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war

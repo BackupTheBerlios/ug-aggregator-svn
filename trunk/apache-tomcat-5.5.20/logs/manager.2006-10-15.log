@@ -1,0 +1,54 @@
+Oct 15, 2006 4:15:53 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Oct 15, 2006 4:15:53 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: init: Global resources are available
+Oct 15, 2006 4:15:53 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 15, 2006 4:15:53 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 15, 2006 4:15:55 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 15, 2006 4:15:55 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 15, 2006 4:16:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: list: Listing contexts for virtual host 'localhost'
+Oct 15, 2006 4:16:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: undeploy: Undeploying web application at '/xpuga'
+Oct 15, 2006 4:16:49 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: deploy: Deploying web application at '/xpuga'
+Oct 15, 2006 4:16:49 PM org.apache.catalina.core.ApplicationContext log
+INFO: Manager: Uploading WAR file to /Users/matteo/dojo/apache-tomcat-5.5.20/webapps/xpuga.war
+Oct 15, 2006 4:31:33 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Oct 15, 2006 4:31:33 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: init: Global resources are available
+Oct 15, 2006 4:31:33 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Oct 15, 2006 4:31:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: undeploy: Undeploying web application at '/balancer'
+Oct 15, 2006 4:31:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Oct 15, 2006 4:32:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: undeploy: Undeploying web application at '/xpuga'
+Oct 15, 2006 4:32:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Oct 15, 2006 4:32:29 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: undeploy: Undeploying web application at '/tomcat-docs'
+Oct 15, 2006 4:32:29 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Oct 15, 2006 4:33:19 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: undeploy: Undeploying web application at '/tomcat-docs'
+Oct 15, 2006 4:33:19 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Oct 15, 2006 4:33:23 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: undeploy: Undeploying web application at '/jsp-examples'
+Oct 15, 2006 4:33:23 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Oct 15, 2006 4:33:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: undeploy: Undeploying web application at '/servlets-examples'
+Oct 15, 2006 4:33:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Oct 15, 2006 4:33:30 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: undeploy: Undeploying web application at '/webdav'
+Oct 15, 2006 4:33:30 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'

@@ -1,0 +1,130 @@
+Oct 11, 2006 7:25:20 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: .:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java
+Oct 11, 2006 7:25:20 PM org.apache.coyote.http11.Http11BaseProtocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Oct 11, 2006 7:25:20 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1017 ms
+Oct 11, 2006 7:25:20 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Oct 11, 2006 7:25:20 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/5.5.20
+Oct 11, 2006 7:25:20 PM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Oct 11, 2006 7:25:22 PM org.apache.coyote.http11.Http11BaseProtocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Oct 11, 2006 7:25:22 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Oct 11, 2006 7:25:22 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/24  config=null
+Oct 11, 2006 7:25:22 PM org.apache.catalina.storeconfig.StoreLoader load
+INFO: Find registry server-registry.xml at classpath resource
+Oct 11, 2006 7:25:22 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1806 ms
+Oct 11, 2006 7:32:33 PM org.apache.coyote.http11.Http11BaseProtocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+Oct 11, 2006 7:32:34 PM org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+Oct 11, 2006 7:32:35 PM org.apache.coyote.http11.Http11BaseProtocol destroy
+INFO: Stopping Coyote HTTP/1.1 on http-8080
+Oct 11, 2006 7:32:35 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: Failed shutdown of Apache Portable Runtime
+Oct 11, 2006 7:32:39 PM org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+INFO: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: .:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java
+Oct 11, 2006 7:32:39 PM org.apache.coyote.http11.Http11BaseProtocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Oct 11, 2006 7:32:39 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 752 ms
+Oct 11, 2006 7:32:39 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Oct 11, 2006 7:32:39 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/5.5.20
+Oct 11, 2006 7:32:39 PM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Oct 11, 2006 7:32:40 PM org.apache.coyote.http11.Http11BaseProtocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Oct 11, 2006 7:32:40 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Oct 11, 2006 7:32:40 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/34  config=null
+Oct 11, 2006 7:32:40 PM org.apache.catalina.storeconfig.StoreLoader load
+INFO: Find registry server-registry.xml at classpath resource
+Oct 11, 2006 7:32:40 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1453 ms
+Oct 11, 2006 7:34:56 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 7:35:36 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 7:35:38 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 7:36:53 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 7:36:55 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 7:48:51 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 7:48:53 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 7:49:24 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 7:49:26 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 8:04:44 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 8:04:46 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 9:39:06 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 9:39:08 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 9:39:27 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 9:39:29 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 9:39:56 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 9:39:59 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 9:41:19 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 9:41:22 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 9:54:39 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 9:54:41 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 9:56:18 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 9:56:20 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 9:59:11 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 9:59:13 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 10:00:35 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 10:00:37 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 10:01:25 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 10:01:27 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 10:02:05 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 10:02:15 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 10:06:58 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 10:07:04 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 10:07:07 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 10:07:09 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 10:07:50 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 10:07:52 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
+Oct 11, 2006 10:08:53 PM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/xpuga]
+Oct 11, 2006 10:08:55 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive xpuga.war
