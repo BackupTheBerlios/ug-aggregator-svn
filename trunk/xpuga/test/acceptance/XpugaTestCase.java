@@ -1,7 +1,10 @@
 
 
+import it.xpug.xpuga.NewsPiece;
+
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 import junit.framework.TestCase;
 
@@ -13,6 +16,8 @@ public class XpugaTestCase extends TestCase {
 	protected static final String DEFAULT_LOCATION = "data/news";
 	protected static final String DEFAULT_URL = "http://localhost:8080/xpuga";
 
+	public static final int HTTP_OK = 200;
+	
 	public XpugaTestCase() {
 		super();
 	}
@@ -44,7 +49,7 @@ public class XpugaTestCase extends TestCase {
 	protected void setLocation(final String location) throws Exception {
 		new DoPost(urlFor("/news/location")) {
 			public void prepare() throws Exception {
-				parameter("location", location);
+				addParameter("location", location);
 			}
 		}.execute();
 	}
@@ -73,5 +78,53 @@ public class XpugaTestCase extends TestCase {
 		if (!directory.mkdir())
 			throw new IOException();
 		return directory;
+	}
+	
+	protected DoGet executeDoGet(String uri) throws Exception {
+		DoGet doGet = new DoGet(urlFor(uri));
+
+		doGet.execute();
+		return doGet;
+	}
+	
+	protected DoPost executeDoPost(String uri, Map parameters) throws Exception {
+		
+		DoPost doPost = new DoPost(urlFor(uri), parameters);
+		
+		doPost.execute();
+		
+		return doPost;
+		
+	}
+
+	protected InsertNews.PostInsertNews currentPostInsertNews = null;
+	
+	protected void postInsertNews(Map news) throws Exception {
+		
+		InsertNews.PostInsertNews postInsertNews = new InsertNews.PostInsertNews(news);
+		postInsertNews.execute();
+
+		this.currentPostInsertNews = postInsertNews;
+		
+	}
+	
+	protected void assertPostStatus(int status) {		
+		assertEquals(status, currentPostInsertNews.getStatus());
+	}
+
+	protected void assertInvalidField(String field) throws Exception {
+		assertInvalidFields(new String[] {field});
+	}
+	
+	protected void assertInvalidFields(String[] fields) throws Exception {
+		currentPostInsertNews.assertInvalidFields(fields);
+	}
+
+	protected void assertNewsCreatedByPost() {
+		currentPostInsertNews.assertNewsCreated();
+	}
+	
+	protected void assertValidFieldsNotSignaledAsWrong(Map news, String[] emptyFields) throws Exception {
+		currentPostInsertNews.assertValidFieldsNotSignaledAsWrong(news, emptyFields);
 	}
 }

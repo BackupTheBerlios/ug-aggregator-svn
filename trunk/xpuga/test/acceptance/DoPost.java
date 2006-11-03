@@ -15,6 +15,12 @@ public class DoPost extends DoGet {
 		parameters = new HashMap();
 	}
 	
+	public DoPost(String uri, Map parameters) {
+		super(uri);
+		this.parameters = parameters;
+	}
+	
+	
 	public void fetch() throws Exception {
 		HttpClient client = new HttpClient();
 		request = new PostMethod(uri);
@@ -25,12 +31,12 @@ public class DoPost extends DoGet {
 			((PostMethod)request).addParameter(key, value);
 		}
 		status = client.executeMethod(request);
-		content = _content();
+		content = readContetFromRequest();
 	}
 
 	public void prepare() throws Exception { }
 
-	public void parameter(String name, String value) throws Exception {
+	public void addParameter(String name, String value) throws Exception {
 		parameters.put(name, value);
 	}
 

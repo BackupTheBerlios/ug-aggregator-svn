@@ -1,6 +1,5 @@
-
-
-
+import java.util.HashMap;
+import java.util.Map;
 
 public class LocationNewsTest extends XpugaTestCase {
 
@@ -14,18 +13,20 @@ public class LocationNewsTest extends XpugaTestCase {
 	 */
 	public void testSetAbsoluteLocation() throws Exception {
 		String tempDir = getSystemTempDir();
-		final String path = tempDir + "/fixtures/pippo/pluto";
-		postNewsLocation(path);
-		assertNewsLocation("modified news location", path);
+		final String filePath = tempDir + "/fixtures/pippo/pluto";
+		createNewsLocationByPost(filePath);
+		assertNewsLocationCreated("modified news location", filePath);
 		
-		assertEquals(path, get("/news/location"));
-		assertEquals(path, get("/news/location/path"));
+		assertEquals("test relative and absolute path", filePath, doGetContentFromUrl("/news/location"));
+		assertEquals("test absolute path", filePath, doGetContentFromUrl("/news/location/path"));
 		
-		postNewsLocation(DEFAULT_LOCATION);
-		assertNewsLocation("default news location", DEFAULT_LOCATION);
+		createNewsLocationByPost(DEFAULT_LOCATION);
+		assertNewsLocationCreated("default news location", DEFAULT_LOCATION);
+		
 	}
 
-	private String get(String url) throws Exception {
+	private String doGetContentFromUrl(String url) throws Exception {
+		/*
 		DoGet get = new DoGet(urlFor(url)) {
 			public void process() throws Exception {
 				assertEquals(200, status);
@@ -33,31 +34,53 @@ public class LocationNewsTest extends XpugaTestCase {
 		};
 		get.execute();
 		return get.content();
+		*/
+		
+		return executeDoGet(url).getContent();
 	}
 
 	public void testSetRelativeLocation() throws Exception {
-		postNewsLocation("fixtures/news/oneNews");
-		assertNewsLocation("modified news location", "fixtures/news/oneNews");
+		createNewsLocationByPost("fixtures/news/oneNews");
+		assertNewsLocationCreated("modified news location", "fixtures/news/oneNews");
 		
-		postNewsLocation(DEFAULT_LOCATION);
-		assertNewsLocation("default news location", DEFAULT_LOCATION);
+		createNewsLocationByPost(DEFAULT_LOCATION);
+		assertNewsLocationCreated("default news location", DEFAULT_LOCATION);
 	}
 
-	private void assertNewsLocation(final String message, final String expected) throws Exception {
+	private void assertNewsLocationCreated(final String errorMessage, final String expected) throws Exception {
+
+		/*
 		new DoGet(urlFor("/news/location")) {
 			public void process() throws Exception {
 				assertEquals(200, status);
 				assertEquals(message, expected, content);
 			}
 		}.execute();
+		*/
+		
+		DoGet doGet = executeDoGet("/news/location");
+		
+		assertEquals(HTTP_OK, doGet.getStatus());
+		assertEquals(errorMessage, expected, doGet.getContent());
+		
 	}
 
-	private void postNewsLocation(final String location) throws Exception {
+	private void createNewsLocationByPost(final String location) throws Exception {
+
+		/*
 		new DoPost(urlFor("/news/location")) {
 			public void prepare() throws Exception {
-				parameter("location", location);
+				addParameter("location", location);
 			}
 		}.execute();
+		*/
+		
+		Map parameters = new HashMap();
+		parameters.put("location", location);
+		
+		executeDoPost("/news/location", parameters);
+		
 	}
+	
 
 }

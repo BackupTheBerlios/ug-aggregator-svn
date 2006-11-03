@@ -11,7 +11,8 @@ public class InsertNewsWithNotEmptyFieldsTest extends XpugaTestCase {
 		
 		for (int i=0; i<emptyFields.length; i++)
 			news.put(emptyFields[i], "");
-
+				
+		/*		
 		new InsertNews.Implementation(news) {
 			public void process() throws Exception {
 				assertEquals(422, status);
@@ -19,6 +20,13 @@ public class InsertNewsWithNotEmptyFieldsTest extends XpugaTestCase {
 				assertValidFieldsNotSignaledAsWrong(news,emptyFields);
 			}
 		}.execute();
+		*/		
+		
+		postInsertNews(news);
+		
+		assertPostStatus(422);
+		assertInvalidFields(emptyFields);
+		assertValidFieldsNotSignaledAsWrong(news, emptyFields);
 	}
 
 	public void testInsertNewsWithEmptyTitle() throws Exception {

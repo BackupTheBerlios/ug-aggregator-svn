@@ -27,10 +27,10 @@ public class DoGet {
 		HttpClient client = new HttpClient();
 		request = new GetMethod(uri);
 		status = client.executeMethod(request);
-		content = _content();
+		content = readContetFromRequest();
 	}
 
-	public void process() throws Exception { }
+	public final void process() throws Exception { }
 
 	public void end() throws Exception {
 		request.releaseConnection();
@@ -66,7 +66,7 @@ public class DoGet {
 		return header.getValue();
 	}
 
-	protected String _content() throws Exception {
+	protected String readContetFromRequest() throws Exception {
 		String line = null;
 		StringBuffer buffer = new StringBuffer();
 		BufferedReader reader = new BufferedReader(
@@ -74,6 +74,14 @@ public class DoGet {
 		while ((line = reader.readLine()) != null)
 			buffer.append(line).append("\n");
 		return buffer.toString().trim();
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public int getStatus() {
+		return status;
 	}
 
 }

@@ -15,13 +15,13 @@ public class InsertNews extends XpugaTestCase {
 		super(name);
 	}
 
-	static class Implementation extends DoPost {
+	static class PostInsertNews extends DoPost {
 		protected String title;
 		protected String expirationDate;
 		protected String userGroup;
 		protected String body;
 
-		public Implementation(Map news) throws Exception {
+		public PostInsertNews(Map news) throws Exception {
 			super(urlFor("/news"));
 			title = (String)news.get("title");
 			body = (String)news.get("body");
@@ -30,13 +30,13 @@ public class InsertNews extends XpugaTestCase {
 		}
 
 		public void prepare() throws Exception {
-			parameter("title", title);
-			parameter("expiration-date", expirationDate);
-			parameter("user-group", userGroup);
-			parameter("body", body);
+			addParameter("title", title);
+			addParameter("expiration-date", expirationDate);
+			addParameter("user-group", userGroup);
+			addParameter("body", body);
 		}
 
-		protected void assertNewsCreated() {
+		public void assertNewsCreated() {
 			assertEquals("201 means news created", 201, status);
 		}
 
