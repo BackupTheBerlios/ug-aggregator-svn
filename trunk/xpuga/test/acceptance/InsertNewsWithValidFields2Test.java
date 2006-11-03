@@ -90,7 +90,7 @@ public class InsertNewsWithValidFields2Test extends XpugaTestCase {
 		postInsertNews(news);	
 		
 		assertPostStatus(422);
-		assertInvalidField("titleee");
+		assertInvalidField("title");
 
 	}
 
