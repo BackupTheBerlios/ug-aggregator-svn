@@ -65,6 +65,7 @@
 	color: white;
 	background-color: #cccccc;
 	text-align: right;
+	display: none;
 }
 
 .action {
