@@ -54,6 +54,10 @@ public class NewsPiece {
     return XDate.getCode(expirationDate);
   }
 
+  public String getInsertionDateAsFormatted() {
+	  return  XDate.getFormatted(insertionDate);
+  }
+
   public void setBody(String body) {
     this.body = body;
   }

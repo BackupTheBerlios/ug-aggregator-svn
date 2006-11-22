@@ -7,7 +7,8 @@ import java.util.GregorianCalendar;
 
 public class XDate extends Date {
 	
-	private static SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMddHHmmss");
+	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+	private static SimpleDateFormat niceFormat = new SimpleDateFormat("dd MMMM yyyy");
 
 	private static final long serialVersionUID = 1972019358732929946L;
 
@@ -16,11 +17,15 @@ public class XDate extends Date {
 	}
 
 	public static Date create(String s) throws ParseException {
-		return fmt.parse(s);
+		return dateFormat.parse(s);
 	}
 
 	public static String getCode(Date date) {
-		return fmt.format(date);
+		return dateFormat.format(date);
+	}
+
+	public static String getFormatted(Date date) {
+		return niceFormat.format(date);
 	}
 
 }
