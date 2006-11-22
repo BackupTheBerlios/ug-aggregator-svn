@@ -1,6 +1,6 @@
 package it.xpug.xpuga;
 
-import junit.framework.*;
+import junit.framework.TestCase;
 
 public class SimpleTest extends TestCase {
 

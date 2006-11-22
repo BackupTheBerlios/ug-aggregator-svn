@@ -78,6 +78,7 @@
 			<test name="InsertNewsTest"/>
 			<test name="InsertNewsWithNotEmptyFieldsTest"/>
 			<test name="InsertNewsWithValidFieldsValueTest"/>
+			<test name="NewsListAsIndexPageTest"/>
 		  	<!-- <test name="InsertNewsWithValidFields2Test"/> -->
 		</junit>
 	</target>

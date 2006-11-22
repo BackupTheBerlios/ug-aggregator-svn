@@ -1,12 +1,21 @@
 package it.xpug.xpuga.servlet;
 
-import it.xpug.xpuga.*;
+import it.xpug.xpuga.Location;
+import it.xpug.xpuga.NewsException;
+import it.xpug.xpuga.NewsManager;
+import it.xpug.xpuga.NewsPiece;
+import it.xpug.xpuga.XDate;
 
-import java.io.*;
+import java.io.IOException;
 import java.text.ParseException;
-import java.util.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import java.util.Date;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class NewsController extends HttpServlet {
 

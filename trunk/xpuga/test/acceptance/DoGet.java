@@ -59,6 +59,10 @@ public class DoGet {
 		return content;
 	}
 
+	public String path() {
+		return request.getPath();
+	}
+
 	public String header(String name) {
 		Header header = request.getResponseHeader(name);
 		if (header == null)

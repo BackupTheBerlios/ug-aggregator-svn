@@ -22,16 +22,6 @@ public class InsertNewsTest extends XpugaTestCase {
 	}
 	
 	public void testInsertOneNews() throws Exception {
-				
-		/*
-		new InsertNews.PostNewsImplementation(newsToInsert) {
-			public void process() throws Exception {
-				assertNewsCreated();
-				locationNewsCreated = header("Location");
-			}
-		}.execute();
-		*/
-		
 		newsToInsert = InsertNews.validNews();
 		
 		postInsertNews(newsToInsert);
@@ -40,15 +30,6 @@ public class InsertNewsTest extends XpugaTestCase {
 		locationNewsCreated = currentPostInsertNews.header("Location");
 
 		newsToInsert.put("insertion-date", extractNewsIdFromNewsLocation(locationNewsCreated));
-
-		/*
-		new ProcessNews.Implementation() {
-			public void all(Document document) throws Exception {
-				assertNumberOfNewsOnPage(1);
-				assertNewsOnPage(newsToInsert);
-			}
-		}.execute();
-		*/
 
 		ProcessNews.Implementation processNews = new ProcessNews.Implementation();
 		processNews.execute();

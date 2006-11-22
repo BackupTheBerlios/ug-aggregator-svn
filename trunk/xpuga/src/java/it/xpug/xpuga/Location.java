@@ -3,8 +3,6 @@ package it.xpug.xpuga;
 import java.io.File;
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
-
 public class Location {
 
 	private String path;

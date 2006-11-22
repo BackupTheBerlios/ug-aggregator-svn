@@ -26,16 +26,6 @@ public class LocationNewsTest extends XpugaTestCase {
 	}
 
 	private String doGetContentFromUrl(String url) throws Exception {
-		/*
-		DoGet get = new DoGet(urlFor(url)) {
-			public void process() throws Exception {
-				assertEquals(200, status);
-			}
-		};
-		get.execute();
-		return get.content();
-		*/
-		
 		return executeDoGet(url).getContent();
 	}
 
@@ -48,21 +38,10 @@ public class LocationNewsTest extends XpugaTestCase {
 	}
 
 	private void assertNewsLocationCreated(final String errorMessage, final String expected) throws Exception {
-
-		/*
-		new DoGet(urlFor("/news/location")) {
-			public void process() throws Exception {
-				assertEquals(200, status);
-				assertEquals(message, expected, content);
-			}
-		}.execute();
-		*/
-		
 		DoGet doGet = executeDoGet("/news/location");
 		
 		assertEquals(HTTP_OK, doGet.getStatus());
 		assertEquals(errorMessage, expected, doGet.getContent());
-		
 	}
 
 	private void createNewsLocationByPost(final String location) throws Exception {
