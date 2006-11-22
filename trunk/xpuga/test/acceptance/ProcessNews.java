@@ -16,7 +16,6 @@ public class ProcessNews extends XpugaTestCase {
 		protected void assertNewsOnPage(final Map news) throws Exception {
 			assertTrue(evalAsBoolean(document, newsAttributeContains("title", (String)news.get("title"))));
 			assertTrue(evalAsBoolean(document, newsAttributeContains("body", (String)news.get("body"))));
-			assertEquals((String)news.get("insertion-date"), evalAsString(document, newsAttribute("insertion-date")));
 			assertEquals((String)news.get("expiration-date"), evalAsString(document, newsAttribute("expiration-date")));
 			assertEquals((String)news.get("user-group"), evalAsString(document, newsAttribute("user-group")));
 

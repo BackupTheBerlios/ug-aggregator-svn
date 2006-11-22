@@ -70,9 +70,7 @@ public class NewsController extends HttpServlet {
 			try {
 				
 				String newsFilename = saveNews(req);
-				res.setStatus(201);
-				res.setHeader("location", "/news/" + newsFilename);
-				doGetAllNews(req, res);
+				res.sendRedirect(req.getContextPath()+"/news");
 
 			} catch (ParseException e) {
 				res.setStatus(422);

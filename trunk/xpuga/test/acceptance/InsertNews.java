@@ -37,7 +37,11 @@ public class InsertNews extends XpugaTestCase {
 		}
 
 		public void assertNewsCreated() {
-			assertEquals("201 means news created", 201, status);
+			//il test corrett odi una post dovrebbe verificare
+			//che la risposta del server sia 202(created), ma noi abbiamo bisogno
+			//di metterci una redirect per evitare che un reload della pagina
+			//faccia ri-postare la news..quindi testiamo per il msg 302 (redirect)
+			assertEquals("302 redirects to the news list after creation", 302, status);
 		}
 
 		protected void assertInvalidFields(final String[] invalidFields) throws Exception {

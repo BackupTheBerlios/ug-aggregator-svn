@@ -23,14 +23,12 @@ public class InsertNewsTest extends XpugaTestCase {
 	
 	public void testInsertOneNews() throws Exception {
 		newsToInsert = InsertNews.validNews();
-		
 		postInsertNews(newsToInsert);
 		assertNewsCreatedByPost();
 				
 		locationNewsCreated = currentPostInsertNews.header("Location");
 
 		newsToInsert.put("insertion-date", extractNewsIdFromNewsLocation(locationNewsCreated));
-
 		ProcessNews.Implementation processNews = new ProcessNews.Implementation();
 		processNews.execute();
 		
