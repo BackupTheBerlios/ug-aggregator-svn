@@ -16,14 +16,21 @@ public class NewsPiece {
   private Date expirationDate;
   private String groupName;
   
+  
+  public NewsPiece() {  }
+  
+  public NewsPiece(String filename) throws IOException, ParseException {
+	load(filename);
+  }
+
   public void load(String filename) throws IOException, ParseException {
     BufferedReader in = new BufferedReader(new FileReader(filename));
-        title = in.readLine();
-        body = in.readLine();
-        insertionDate = XDate.create(in.readLine());
-        expirationDate = XDate.create(in.readLine());
-        groupName = in.readLine();
-        in.close();   
+    title = in.readLine();
+    body = in.readLine();
+    insertionDate = XDate.create(in.readLine());
+    expirationDate = XDate.create(in.readLine());
+    groupName = in.readLine();
+    in.close();   
   }
 
   public String getTitle() {
