@@ -4,11 +4,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 public class XDate extends Date {
 	
 	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
-	private static SimpleDateFormat niceFormat = new SimpleDateFormat("dd MMMM yyyy");
+	private static SimpleDateFormat niceFormat = new SimpleDateFormat("dd MMMM yyyy", Locale.ITALY);
 
 	private static final long serialVersionUID = 1972019358732929946L;
 
