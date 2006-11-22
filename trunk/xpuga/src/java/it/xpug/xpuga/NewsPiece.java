@@ -42,7 +42,11 @@ public class NewsPiece {
   }
 
   public Date getInsertionDate() {
-    return insertionDate;
+    return new Date(insertionDate.getTime()) {
+		public String toString() {
+			return XDate.getFormatted(this);
+		}
+	};
   }
 
   public Date getExpirationDate() {
@@ -59,10 +63,6 @@ public class NewsPiece {
 
   public String getExpirationDateAsCode() {
     return XDate.getCode(expirationDate);
-  }
-
-  public String getInsertionDateAsFormatted() {
-	  return  XDate.getFormatted(insertionDate);
   }
 
   public void setBody(String body) {

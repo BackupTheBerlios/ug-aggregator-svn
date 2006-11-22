@@ -20,7 +20,7 @@
 		<div class="content">
 			<div id="<%= piece.getInsertionDateAsCode() %>" class="news">
 				<p class="info">
-					<span class="insertion-date" title="<%= piece.getInsertionDateAsCode() %>"><%= piece.getInsertionDateAsFormatted() %></span>
+					<span class="insertion-date" title="<%= piece.getInsertionDateAsCode() %>"><%= piece.getInsertionDate() %></span>
 					<span class="expiration-date" title="<%= piece.getExpirationDateAsCode() %>"><%= piece.getExpirationDate() %></span>
 					<span class="user-group" title="<%= piece.getGroupName() %>"><%= piece.getGroupName() %></span>
 					<span class="title"><%= piece.getTitle() %></span>
