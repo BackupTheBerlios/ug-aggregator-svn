@@ -1,0 +1,11 @@
+require "rake/testtask"
+
+task :default => [ :unit_tests, :acceptance_tests ]
+
+Rake::TestTask.new(:unit_tests) do | test |
+  test.test_files = FileList.new('test/unit/tc_*.rb')
+end
+
+Rake::TestTask.new(:acceptance_tests) do | test |
+  test.test_files = FileList.new('test/acceptance/tc_*.rb')
+end
