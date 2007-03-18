@@ -4,14 +4,12 @@ require 'lib/fit4ruby'
 class TestFit4Ruby < Test::Unit::TestCase
 
   def setup
-    @test_csv = <<-END
-      test/fixture/calcola_percento.rb
+    @test_csv ="""test/fixture/calcola_percento.rb
       CalcolaPercento
       percentuale, importo, percento?
       15, 100, 15
       30, 200, 60
-      50, 200, 1
-    END
+      50, 200, 1"""
   end
 
   def test_can_load_class
